@@ -106,6 +106,25 @@ header {
     }
 }
 
+// global button styles 
+.btn {
+    background-color: @raisin-light-80; 
+    border: none;
+    border-radius: 2px; 
+    padding: .75rem;
+    &.active {
+        background-color: @raisin-light-40; 
+        color: @white;
+    }
+    &.btn-lg {
+        background-color: @raisin; 
+        color: @white;
+        font-weight: 700; 
+        letter-spacing: .5px; 
+        padding: 1rem; 
+    }
+}
+
 .home #content {
     padding-top: 33px;
     padding-bottom: 33px;
@@ -252,7 +271,7 @@ header {
 
     .form-group,
     .btn-group {
-        margin-bottom: @line-height / 2;
+        margin-bottom: 1.25rem;
     }
 
     .btn-group,
@@ -285,7 +304,6 @@ header {
     label {
         display: block;
         font-weight: normal;
-        letter-spacing: 0.1rem;
         color: #000;
 
         &.btn {

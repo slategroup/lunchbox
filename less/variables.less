@@ -18,22 +18,24 @@
 @condensed-font-family: "Retina", Helvetica, Arial, Verdana, sans-serif;
 @bg-color: #fff; // background color of canvas poster
 @text-color: #000; // color of text on canvas
+@white: #fff; 
+@black: #000; 
 
 // slate colors
 @raisin: #2c0022; // BASE
-@raisin-light-80: mix($white, $raisin, 80%); // #d5ccd3
-@raisin-light-60: mix($white, $raisin, 60%); // #ab99a7
-@raisin-light-40: mix($white, $raisin, 40%); // #80667a
-@raisin-light-20: mix($white, $raisin, 20%); // #56334e
-@raisin-dark-20: mix($black, $raisin, 20%); // #23001b
+@raisin-light-80: mix(@white, @raisin, 80%); // #d5ccd3
+@raisin-light-60: mix(@white, @raisin, 60%); // #ab99a7
+@raisin-light-40: mix(@white, @raisin, 40%); // #80667a
+@raisin-light-20: mix(@white, @raisin, 20%); // #56334e
+@raisin-dark-20: mix(@white, @raisin, 20%); // #23001b
 // -------
 @plum: #6a0432; // BASE
-@plum-light-80: mix($white, $plum, 80%); // #e1cdd6
-@plum-light-60: mix($white, $plum, 60%); // #c39bad
-@plum-light-40: mix($white, $plum, 40%); // #a66884
-@plum-light-20: mix($white, $plum, 20%); // #88365b
-@plum-dark-20: mix($black, $plum, 20%); // #550328
-@plum-dark-40: mix($black, $plum, 40%); // #40021e
+@plum-light-80: mix(@white, @plum, 80%); // #e1cdd6
+@plum-light-60: mix(@white, @plum, 60%); // #c39bad
+@plum-light-40: mix(@white, @plum, 40%); // #a66884
+@plum-light-20: mix(@white, @plum, 20%); // #88365b
+@plum-dark-20: mix(@black, @plum, 20%); // #550328
+@plum-dark-40: mix(@black, @plum, 40%); // #40021e
 
 @logo-path: url('../img/icon-lunchbox.png');
 @logo-sq-width: 120px;
