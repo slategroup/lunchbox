@@ -17,7 +17,7 @@ canvas {
 header {
     background: @raisin;
     margin: 0;
-    padding: 25px @grid-gutter-width / 2;
+    padding: 1.5rem 1rem;
     color: @white;
 
     .home & {
@@ -35,16 +35,7 @@ header {
         }
     }
 
-    a {
-        color: @gray-lighter;
-
-        &:hover {
-            color: @gray;
-            text-decoration: none;
-        }
-    }
-
-    .nav-links {
+    /*.nav-links {
         margin: 0 0 11px 0;
         padding: 0;
 
@@ -74,17 +65,20 @@ header {
                 text-align: right;
             }
         }
-    }
+    }*/
 
+    img {
+        padding-right: .25rem; 
+        width: 5rem;
+    }
 
     h1 {
         display: inline-block;
         font-weight: 400;
-        line-height: 32px;
-        font-size: @font-size-h3;
+        font-size: 33px;
+        line-height: 1;
         margin: 0;
         -webkit-font-smoothing: antialiased;
-        font-family: @font-family;
 
         .home & {
             display: block;
@@ -96,10 +90,6 @@ header {
             margin-left: 11px;
             opacity: 0.7;
             text-transform: none;
-        }
-
-        @media screen and (min-width: 700px){
-            font-size: @font-size-h1;
         }
     }
 }
