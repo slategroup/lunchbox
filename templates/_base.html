@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Lunchbox</title>
+    <title>Slate Quotable</title>
 
     <!-- META TAGS -->
     {% include '_meta.html' %}
@@ -19,21 +19,20 @@
     {% endblock extra_head %}
 </head>
 <body class="{{ id|lower }}">
-    <a class="sr-only" href="#content">Skip To Content</a>
+    <!--<a class="sr-only" href="#content">Skip To Content</a>--> 
 
     {% block outer_content %}
 
     {% block header_content %}
     <header>
-        <div class="nav-links">
+        <!-- commenting these out for now, will probably delete later -->
+        <!--<div class="nav-links">
             <a href="../quotable/index.html" {% if name == 'Quotable' %} class="active" {% endif %}>Quotable</a>
             <a href="../factlist/index.html" {% if name == 'Factlist' %} class="active" {% endif %}>Factlist</a>
             <a href="../waterbug/index.html" {% if name == 'Waterbug' %} class="active" {% endif %}>Waterbug</a>
-        </div>
+        </div>-->
 
-        <a href="../index.html" class="home-link">
-            <h1>Lunchbox</h1>
-        </a>
+        <h1><img src="../img/slate_logo_white.png"/> Quotable</h1>
     </header>
     {% endblock header_content %}
 

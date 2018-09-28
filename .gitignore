@@ -55,3 +55,6 @@ www/live-data/*
 
 # built apps
 electron
+
+# python
+lunchbox/lib/python2.7/*
