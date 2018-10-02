@@ -416,7 +416,6 @@ h2 {
 }
 
 .poster {
-
     background: @bg-color;
     position: relative;
     padding: @padding * 2;
@@ -425,50 +424,53 @@ h2 {
     overflow: hidden;
     color: @text-color;
 
-    // square
-    &.square {
+    // twitter
+    height: 100%; 
+    width: 100%;
+    @media screen and (min-width: @screen-sm-max){
+        height: 384px; // half x 1.5
+        width: 768px; // half x 1.5
+        padding: @padding;
+    }
+
+    .quote& {
+        .left-quote {
+            top: @padding;
+            left: @padding;
+        }
+    }
+
+    blockquote {
+        margin-bottom: 20px;
+    }
+
+    .logo-wrapper {
+        padding: @padding;
+
+        img {
+            width: 150px;
+        }
+
+        .poster-music& {
+            padding-bottom: @padding - 10;
+        }
+    }
+
+    p.source {
+        font-size: @base-font-size * 1.3;
+    }
+
+    .show-credit {
+        font-size: @base-font-size * 1.1;
+    }
+    // facebook
+    &.facebook {
         height: 100%; 
         width: 100%;
         @media screen and (min-width: @screen-sm-max){
-            max-height: 640px;
-            max-width: 640px;
-        }
-    }
-    // 16 x 9
-    &.twitter {
-        height: 256px; // half 
-        width: 512px; // half
-        padding: @padding;
-
-        .quote& {
-            .left-quote {
-                top: @padding;
-                left: @padding;
-            }
-        }
-
-        blockquote {
-            margin-bottom: 20px;
-        }
-
-        .logo-wrapper {
+            height: 472.5px; // half x 1.5
+            width: 900px; // half x 1.5
             padding: @padding;
-
-            img {
-                width: 150px;
-            }
-
-            .poster-music& {
-                padding-bottom: @padding - 10;
-            }
-        }
-
-        p.source {
-            font-size: @base-font-size * 1.3;
-        }
-
-        .show-credit {
-            font-size: @base-font-size * 1.1;
         }
     }
 

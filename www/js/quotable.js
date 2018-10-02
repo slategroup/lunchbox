@@ -154,7 +154,7 @@ $(function() {
     $aspectRatioButtons.on('click', function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
-        $poster.removeClass('square twitter').addClass($(this).attr('id'));
+        $poster.removeClass('facebook twitter').addClass($(this).attr('id'));
 
         if ($poster.hasClass('twitter')) {
             adjustFontSize(32);
