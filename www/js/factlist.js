@@ -171,9 +171,9 @@ var onThemeClick = function(e) {
 var onAspectRatioClick = function(e) {
     $aspectRatioButtons.removeClass().addClass('btn btn-primary');
     $(this).addClass('active');
-    $poster.removeClass('square sixteen-by-nine').addClass($(this).attr('id'));
+    $poster.removeClass('square twitter').addClass($(this).attr('id'));
 
-    if ($poster.hasClass('sixteen-by-nine')) {
+    if ($poster.hasClass('twitter')) {
         $fontSize.attr('min', 24);
         $fontSize.val(24);
         adjustFontSize(null, 32);

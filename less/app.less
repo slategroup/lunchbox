@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background: @white;
+    background: @gray-f8;
     font-family: @font-family !important;
     font-size: @base-font-size !important;
 }
@@ -401,7 +401,7 @@ h2 {
 
     @media screen and (min-width: @screen-sm-max){
         column-gap: 2rem;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.5fr;
         margin: 2rem 3.5rem; 
     }
 
@@ -411,18 +411,11 @@ h2 {
     }
     // exported image
     .poster-wrapper {
-        border: 1px solid @gray-c;
         width: 100%; 
     }
 }
 
 .poster {
-    //height: 100%; 
-    //width: 100%;
-    @media screen and (min-width: @screen-sm-max){
-        height: 640px;
-        width: 640px;
-    }
 
     background: @bg-color;
     position: relative;
@@ -432,94 +425,19 @@ h2 {
     overflow: hidden;
     color: @text-color;
 
-    &.poster-theme1 {
-        .logo-wrapper {
-            background-image: @logo-path;
-            background-repeat: no-repeat;
-            background-size: @logo-sq-width @logo-sq-height;
-            width: @logo-sq-width + @padding;
-            height: @logo-sq-height + @padding;
-
-            .sixteen-by-nine& {
-                background-size: @logo-16x9-width @logo-16x9-height;
-                width: @logo-16x9-width + @padding;
-                height: @logo-16x9-height + @padding;
-            }
+    // square
+    &.square {
+        height: 100%; 
+        width: 100%;
+        @media screen and (min-width: @screen-sm-max){
+            max-height: 640px;
+            max-width: 640px;
         }
     }
-
-    &.poster-theme2 {
-        background: @theme2-bg-color;
-        color: @theme2-text-color;
-        .logo-wrapper {
-            background: @theme2-bg-color;
-            color: @theme2-text-color;
-            background-image: @theme2-logo-path;
-            background-repeat: no-repeat;
-            background-size: @theme2-sq-logo-width @theme2-sq-logo-height;
-            width: @theme2-sq-logo-width + @padding;
-            height: @theme2-sq-logo-height + @padding;
-
-            .sixteen-by-nine& {
-                background-size: @theme2-16x9-logo-width @theme2-16x9-logo-height;
-                width: @theme2-16x9-logo-width + @padding;
-                height: @theme2-16x9-logo-height + @padding;
-            }
-        }
-        .show-credit {
-            color: @theme2-credit-color;
-        }
-    }
-
-
-    &.poster-theme3 {
-        background: @theme3-bg-color;
-        color: @theme3-text-color;
-        .logo-wrapper {
-            background: @theme3-bg-color;
-            color: @theme3-text-color;
-            background-image: @theme3-logo-path;
-            background-repeat: no-repeat;
-            background-size: @theme3-sq-logo-width @theme3-sq-logo-height;
-            width: @theme3-sq-logo-width + @padding;
-            height: @theme3-sq-logo-height + @padding;
-
-            .sixteen-by-nine& {
-                background-size: @theme3-16x9-logo-width @theme3-16x9-logo-height;
-                width: @theme3-16x9-logo-width + @padding;
-                height: @theme3-16x9-logo-height + @padding;
-            }
-        }
-        .show-credit {
-            color: @theme3-credit-color;
-        }
-    }
-
-    &.poster-theme4 {
-        background: @theme4-bg-color;
-        color: @theme4-text-color;
-        .logo-wrapper {
-            background: @theme4-bg-color;
-            color: @theme4-text-color;
-            background-image: @theme4-logo-path;
-            background-repeat: no-repeat;
-            background-size: @theme4-sq-logo-width @theme4-sq-logo-height;
-            width: @theme4-sq-logo-width + @padding;
-            height: @theme4-sq-logo-height + @padding;
-
-            .sixteen-by-nine& {
-                background-size: @theme4-16x9-logo-width @theme4-16x9-logo-height;
-                width: @theme4-16x9-logo-width + @padding;
-                height: @theme4-16x9-logo-height + @padding;
-            }
-        }
-        .show-credit {
-            color: @theme4-credit-color;
-        }
-    }
-
-    &.sixteen-by-nine {
-        height: 360px;
+    // 16 x 9
+    &.twitter {
+        height: 256px; // half 
+        width: 512px; // half
         padding: @padding;
 
         .quote& {
@@ -551,6 +469,92 @@ h2 {
 
         .show-credit {
             font-size: @base-font-size * 1.1;
+        }
+    }
+
+    &.poster-theme1 {
+        .logo-wrapper {
+            background-image: @logo-path;
+            background-repeat: no-repeat;
+            background-size: @logo-sq-width @logo-sq-height;
+            width: @logo-sq-width + @padding;
+            height: @logo-sq-height + @padding;
+
+            .twitter& {
+                background-size: @logo-16x9-width @logo-16x9-height;
+                width: @logo-16x9-width + @padding;
+                height: @logo-16x9-height + @padding;
+            }
+        }
+    }
+
+    &.poster-theme2 {
+        background: @theme2-bg-color;
+        color: @theme2-text-color;
+        .logo-wrapper {
+            background: @theme2-bg-color;
+            color: @theme2-text-color;
+            background-image: @theme2-logo-path;
+            background-repeat: no-repeat;
+            background-size: @theme2-sq-logo-width @theme2-sq-logo-height;
+            width: @theme2-sq-logo-width + @padding;
+            height: @theme2-sq-logo-height + @padding;
+
+            .twitter& {
+                background-size: @theme2-16x9-logo-width @theme2-16x9-logo-height;
+                width: @theme2-16x9-logo-width + @padding;
+                height: @theme2-16x9-logo-height + @padding;
+            }
+        }
+        .show-credit {
+            color: @theme2-credit-color;
+        }
+    }
+
+
+    &.poster-theme3 {
+        background: @theme3-bg-color;
+        color: @theme3-text-color;
+        .logo-wrapper {
+            background: @theme3-bg-color;
+            color: @theme3-text-color;
+            background-image: @theme3-logo-path;
+            background-repeat: no-repeat;
+            background-size: @theme3-sq-logo-width @theme3-sq-logo-height;
+            width: @theme3-sq-logo-width + @padding;
+            height: @theme3-sq-logo-height + @padding;
+
+            .twitter& {
+                background-size: @theme3-16x9-logo-width @theme3-16x9-logo-height;
+                width: @theme3-16x9-logo-width + @padding;
+                height: @theme3-16x9-logo-height + @padding;
+            }
+        }
+        .show-credit {
+            color: @theme3-credit-color;
+        }
+    }
+
+    &.poster-theme4 {
+        background: @theme4-bg-color;
+        color: @theme4-text-color;
+        .logo-wrapper {
+            background: @theme4-bg-color;
+            color: @theme4-text-color;
+            background-image: @theme4-logo-path;
+            background-repeat: no-repeat;
+            background-size: @theme4-sq-logo-width @theme4-sq-logo-height;
+            width: @theme4-sq-logo-width + @padding;
+            height: @theme4-sq-logo-height + @padding;
+
+            .twitter& {
+                background-size: @theme4-16x9-logo-width @theme4-16x9-logo-height;
+                width: @theme4-16x9-logo-width + @padding;
+                height: @theme4-16x9-logo-height + @padding;
+            }
+        }
+        .show-credit {
+            color: @theme4-credit-color;
         }
     }
 
@@ -656,7 +660,7 @@ h2 {
         width: @logo-sq-width + @padding;
         height: @logo-sq-height + @padding;
 
-        .sixteen-by-nine& {
+        .twitter& {
             background-size: @logo-16x9-width @logo-16x9-height;
             width: @logo-16x9-width + @padding;
             height: @logo-16x9-height + @padding;
