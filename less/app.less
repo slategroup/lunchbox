@@ -473,6 +473,16 @@ h2 {
             padding: @padding;
         }
     }
+    // square
+    &.square {
+        height: 100%; 
+        width: 100%;
+        @media screen and (min-width: @screen-sm-max){
+            height: 640px; 
+            width: 640px; 
+            padding: @padding * 2;
+        }
+    }
 
     &.poster-theme1 {
         .logo-wrapper {
