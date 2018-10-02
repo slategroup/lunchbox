@@ -444,25 +444,13 @@ h2 {
         margin-bottom: 20px;
     }
 
-    .logo-wrapper {
-        padding: @padding;
-
-        img {
-            width: 150px;
-        }
-
-        .poster-music& {
-            padding-bottom: @padding - 10;
-        }
-    }
-
-    p.source {
+    /*p.source {
         font-size: @base-font-size * 1.3;
     }
 
     .show-credit {
         font-size: @base-font-size * 1.1;
-    }
+    }*/
     // facebook
     &.facebook {
         height: 100%; 
@@ -484,19 +472,55 @@ h2 {
         }
     }
 
+    .logo-wrapper {
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        padding:  @padding @padding * 2 @padding * 2;
+        margin: 0;
+        font-size: 46px;
+        background: @bg-color;
+        background-image: @logo-path;
+        background-repeat: no-repeat;
+        background-size: @slate-logo-width @slate-logo-height;
+        width: @slate-logo-width + @padding;
+        height: @slate-logo-height + @padding;
+
+        /*.twitter& {
+            background-size: @logo-16x9-width @logo-16x9-height;
+            width: @logo-16x9-width + @padding;
+            height: @logo-16x9-height + @padding;
+        }*/
+
+        .logo {
+            .hide;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        .poster-music& {
+            padding-bottom: @padding - 10;
+        }
+    }
+
     &.poster-theme1 {
         .logo-wrapper {
             background-image: @logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-sq-width @logo-sq-height;
-            width: @logo-sq-width + @padding;
-            height: @logo-sq-height + @padding;
+            background-size: @slate-logo-width @slate-logo-height;
+            width: @slate-logo-width + @padding;
+            height: @slate-logo-height + @padding;
 
-            .twitter& {
+            /*.twitter& {
                 background-size: @logo-16x9-width @logo-16x9-height;
                 width: @logo-16x9-width + @padding;
                 height: @logo-16x9-height + @padding;
-            }
+            }*/
         }
     }
 
@@ -508,22 +532,22 @@ h2 {
             color: @theme2-text-color;
             background-image: @theme2-logo-path;
             background-repeat: no-repeat;
-            background-size: @theme2-sq-logo-width @theme2-sq-logo-height;
-            width: @theme2-sq-logo-width + @padding;
-            height: @theme2-sq-logo-height + @padding;
+            background-size: @slate-logo-width @slate-logo-height;
+            width: @slate-logo-width + @padding;
+            height: @slate-logo-height + @padding;
 
-            .twitter& {
+            /*.twitter& {
                 background-size: @theme2-16x9-logo-width @theme2-16x9-logo-height;
                 width: @theme2-16x9-logo-width + @padding;
                 height: @theme2-16x9-logo-height + @padding;
-            }
+            }*/
         }
-        .show-credit {
+        /*.show-credit {
             color: @theme2-credit-color;
-        }
+        }*/
     }
 
-
+    /*
     &.poster-theme3 {
         background: @theme3-bg-color;
         color: @theme3-text-color;
@@ -568,7 +592,7 @@ h2 {
         .show-credit {
             color: @theme4-credit-color;
         }
-    }
+    }*/
 
     .quote& {
         .left-quote {
@@ -652,34 +676,6 @@ h2 {
         &:focus {
             border: none;
             outline: none;
-        }
-    }
-
-    .logo-wrapper {
-        position: absolute;
-        width: 100%;
-        z-index: 100;
-        bottom: 0;
-        right: 0;
-        text-align: right;
-        padding:  @padding @padding * 2 @padding * 2;
-        margin: 0;
-        font-size: 46px;
-        background: @bg-color;
-        background-image: @logo-path;
-        background-repeat: no-repeat;
-        background-size: @logo-sq-width @logo-sq-height;
-        width: @logo-sq-width + @padding;
-        height: @logo-sq-height + @padding;
-
-        .twitter& {
-            background-size: @logo-16x9-width @logo-16x9-height;
-            width: @logo-16x9-width + @padding;
-            height: @logo-16x9-height + @padding;
-        }
-
-        .logo {
-            .hide;
         }
     }
 }
