@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background: @gray-f0;
+    background: @white;
     font-family: @font-family !important;
     font-size: @base-font-size !important;
 }
@@ -88,21 +88,26 @@ header {
 
 // global button styles 
 .btn {
-    background-color: @raisin-light-80; 
-    border: none;
+    background-color: @white; 
+    border: 1px solid @gray-c;
     border-radius: 2px; 
     padding: .75rem;
     &.active {
-        background-color: @raisin-light-40; 
-        color: @white;
+        background-color: @gray-d; 
     }
     &.btn-lg {
-        background-color: @raisin; 
+        background-color: @cherry; 
+        border: none; 
         color: @white;
         font-weight: 700; 
         letter-spacing: .5px; 
         padding: 1rem; 
     }
+}
+
+h2 {
+    font-size: 1.25rem; 
+    margin: 0;
 }
 
 /*
@@ -392,20 +397,22 @@ header {
 
 .content {
     display: grid;
-    margin: 1.5rem; 
+    margin: 1rem;
 
     @media screen and (min-width: @screen-sm-max){
-        column-gap: 1.5rem;
+        column-gap: 2rem;
         grid-template-columns: 1fr 1fr;
+        margin: 2rem 3.5rem; 
     }
 
-    // exported image
-    .poster-wrapper {
-        width: 100%; 
-    }
     // filters
     .container {
         width: 100%;  
+    }
+    // exported image
+    .poster-wrapper {
+        border: 1px solid @gray-c;
+        width: 100%; 
     }
 }
 
