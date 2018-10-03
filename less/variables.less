@@ -22,19 +22,10 @@
 @black: #000; 
 
 // slate colors
-// Raisin
-// -------------------------
-@raisin: #2c0022; // BASE
-@raisin-light-80: mix(@white, @raisin, 80%); // #d5ccd3
-@raisin-light-60: mix(@white, @raisin, 60%); // #ab99a7
-@raisin-light-40: mix(@white, @raisin, 40%); // #80667a
-@raisin-light-20: mix(@white, @raisin, 20%); // #56334e
-@raisin-dark-20: mix(@white, @raisin, 20%); // #23001b
-
+@raisin: #2c0022; 
+@plum: #6a0432;
 @cherry: #ff0e50;
-
-// Gray
-// -------------------------
+// grayscale
 @gray-2: #222;
 @gray-4: #444;
 @gray-6: #666;
@@ -84,22 +75,24 @@
 @theme2-sq-logo-height: @slate-logo-height;
 @theme2-16x9-logo-width: @slate-logo-width;
 @theme2-16x9-logo-height: @slate-logo-height;
+@theme3-sq-logo-width: @slate-logo-width;
+@theme3-sq-logo-height: @slate-logo-height;
+@theme3-16x9-logo-width: @slate-logo-width;
+@theme3-16x9-logo-height: @slate-logo-height;
 
 // themes
+// raisin bg
 @theme2-bg-color: @raisin;
 @theme2-text-color: @white;
 @theme2-credit-color: #999;
 @theme2-logo-path: url('../img/slate_logo_white.png');
 
-
-@theme3-bg-color: #999;
-@theme3-text-color: #000;
+// plum bg
+@theme3-bg-color: @plum;
+@theme3-text-color: @white;
 @theme3-credit-color: #333;
-@theme3-logo-path: url('../img/icon-lunchbox-black.png');
-@theme3-sq-logo-width: 120px;
-@theme3-sq-logo-height: 96px;
-@theme3-16x9-logo-width: 100px;
-@theme3-16x9-logo-height: 80px;
+@theme3-logo-path: url('../img/slate_logo_white.png');
+
 
 @theme4-bg-color: #C66137;
 @theme4-text-color: #fff;
