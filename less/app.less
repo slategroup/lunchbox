@@ -474,37 +474,14 @@ h2 {
 
     .logo-wrapper {
         position: absolute;
-        width: 100%;
         z-index: 100;
         bottom: 0;
-        right: 0;
-        text-align: right;
-        padding:  @padding @padding * 2 @padding * 2;
-        margin: 0;
-        font-size: 46px;
-        background: @bg-color;
-        //background-image: @logo-path;
-        background-repeat: no-repeat;
-        background-size: @slate-logo-width @slate-logo-height;
-        width: @slate-logo-width + @padding;
-        height: @slate-logo-height + @padding;
-
-        /*.twitter& {
-            background-size: @logo-16x9-width @logo-16x9-height;
-            width: @logo-16x9-width + @padding;
-            height: @logo-16x9-height + @padding;
-        }*/
-
-        .logo {
-            .hide;
-        }
+        right: 0px;
+        padding: 30px;
 
         img {
-            width: 150px;
-        }
-
-        .poster-music& {
-            padding-bottom: @padding - 10;
+            display: block;
+            width: @brand-logo-size;
         }
     }
 

@@ -146,11 +146,7 @@ $(function() {
 
 
     // change brand logo
-    $('.change-brand').on('change', function() {
-        //$themeButtons.removeClass().addClass('btn btn-primary');
-        //$(this).addClass('active');
-        //$poster.addClass('theme_podcast'); 
-        //$poster.addClass('theme_' + $('.change-brand option:selected').attr('id'));  
+    $('.change-brand').on('change', function() { 
         var brandSelected = $('.change-brand option:selected').attr('id');
         // image file matches ID on select option
         $('.logo-wrapper img').attr('src','../img/brand/' + brandSelected + '.png' );
