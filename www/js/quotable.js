@@ -151,6 +151,13 @@ $(function() {
                     .addClass('poster-' + $(this).attr('id'));
     });
 
+    $('.podcast-select').on('change', function() {
+        //$themeButtons.removeClass().addClass('btn btn-primary');
+        //$(this).addClass('active');
+        $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
+                    .addClass('poster-' + $('.podcast-select option:selected').attr('id'));
+    });
+
     $aspectRatioButtons.on('click', function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
