@@ -144,6 +144,18 @@ $(function() {
 
     $save.on('click', saveImage);
 
+
+    // change brand logo
+    $('.change-brand').on('change', function() {
+        //$themeButtons.removeClass().addClass('btn btn-primary');
+        //$(this).addClass('active');
+        //$poster.addClass('theme_podcast'); 
+        //$poster.addClass('theme_' + $('.change-brand option:selected').attr('id'));  
+        var brandSelected = $('.change-brand option:selected').attr('id');
+        // image file matches ID on select option
+        $('.logo-wrapper img').attr('src','../img/brand/' + brandSelected + '.png' );
+    });
+
     // change background color
     $themeButtons.on('click', function() {
         $themeButtons.removeClass().addClass('btn btn-primary');
@@ -152,13 +164,7 @@ $(function() {
                     .addClass('poster-' + $(this).attr('id'));
     });
 
-    // change podcast logo
-    $('.podcast-select').on('change', function() {
-        //$themeButtons.removeClass().addClass('btn btn-primary');
-        //$(this).addClass('active');
-        $poster.addClass('theme_podcast')
-        $poster.addClass('theme_' + $('.podcast-select option:selected').attr('id'));
-    });
+
 
     $aspectRatioButtons.on('click', function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
