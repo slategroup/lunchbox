@@ -144,6 +144,7 @@ $(function() {
 
     $save.on('click', saveImage);
 
+    // change background color
     $themeButtons.on('click', function() {
         $themeButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
@@ -151,11 +152,12 @@ $(function() {
                     .addClass('poster-' + $(this).attr('id'));
     });
 
+    // change podcast logo
     $('.podcast-select').on('change', function() {
         //$themeButtons.removeClass().addClass('btn btn-primary');
         //$(this).addClass('active');
-        $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
-                    .addClass('poster-' + $('.podcast-select option:selected').attr('id'));
+        $poster.addClass('theme_podcast')
+        $poster.addClass('theme_' + $('.podcast-select option:selected').attr('id'));
     });
 
     $aspectRatioButtons.on('click', function() {
