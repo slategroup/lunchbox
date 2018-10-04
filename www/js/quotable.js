@@ -197,8 +197,11 @@ $(function() {
         if (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum')) {
             if ($styleSelectedID === 'quotes') {
                 $('blockquote p').removeClass();
-                $('blockquote p').addClass('quotation-mark-white');
-            }
+                $('blockquote p').addClass('quotation-marks-white');
+            } 
+        } else {
+            $('blockquote p').removeClass();
+            $('blockquote p').addClass('quotation-marks');
         }
 
     }); 
