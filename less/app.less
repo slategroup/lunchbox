@@ -93,7 +93,12 @@ header {
     border-radius: 2px; 
     padding: .75rem;
     &.active {
+        background-color: @cherry-light-80; 
+    }
+    &.disabled {
         background-color: @gray-d; 
+        color: @gray-6;
+        cursor: not-allowed;
     }
     &.btn-lg {
         background-color: @cherry; 

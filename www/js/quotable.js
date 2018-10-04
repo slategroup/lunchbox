@@ -145,16 +145,29 @@ $(function() {
     $save.on('click', saveImage);
 
 
+    $brandSelect = $('.filter_change-brand'); 
+    $brandLogo = $('.logo-wrapper img'); 
+
     // change brand logo
-    $('.change-brand').on('change', function() { 
-        var brandSelected = $('.change-brand option:selected').attr('id');
+    $brandSelect.on('change', function() { 
+        var brandSelected = $('.filter_change-brand option:selected').attr('id');
+
         // image file matches ID on select option
-        $('.logo-wrapper img').attr('src','../img/brand/' + brandSelected + '.png' );
+        $brandLogo.attr('src','../img/brand/' + brandSelected + '.png' );
+
+        // disabled bg color options based on brand selection
+        if (brandSelected === 'slate') {
+            $themeButtons.removeClass('disabled');
+            $('.filter_change-color #theme4').addClass('disabled'); 
+        } else {
+            $themeButtons.removeClass('disabled');
+            $('.filter_change-color #theme2, .filter_change-color #theme3').addClass('disabled');
+        }
     });
 
     // change background color
     $themeButtons.on('click', function() {
-        $themeButtons.removeClass().addClass('btn btn-primary');
+        $themeButtons.removeClass('active');
         $(this).addClass('active');
         $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
                     .addClass('poster-' + $(this).attr('id'));
