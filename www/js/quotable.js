@@ -9,26 +9,31 @@ var $show = null;
 var $source = null;
 var $quote = null;
 var $logoWrapper = null;
+var $podcastName = null; 
 
 var quotes = [
     {
         "quote": "I've made a huge mistake.",
         "source": "G.O.B.", 
+        "podcastName": "Test podcast", 
         "size": 30
     },
     {
         "quote": "Annyong.",
         "source": "Annyong",
+        "podcastName": "Test podcast",
         "size": 30
     },
     {
         "quote": "STEVE HOLT!",
         "source": "Steve Holt",
+        "podcastName": "Test podcast",
         "size": 30
     },
     {
         "quote": "Whoa, whoa, whoa. There's still plenty of meat on that bone. Now you take this home, throw it in a pot, add some broth, a potato. Baby, you've got a stew going.",
         "source": "Carl Weathers",
+        "podcastName": "Test podcast",
         "size": 20
     }
 ];
@@ -53,7 +58,7 @@ function convertToSlug(text) {
 }
 
 function processText() {
-    $text = $('.poster blockquote p, .source');
+    $text = $('.poster blockquote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
         $(this).html(smarten(rawText)).find('br').remove();
@@ -112,7 +117,7 @@ function adjustFontSize(size) {
 }
 
 $(function() {
-    $text = $('.social-graphic-quote blockquote p, .source');
+    $text = $('.social-graphic-quote blockquote p, .source, .podcast-name');
     $save = $('#save');
     $poster = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
@@ -123,6 +128,7 @@ $(function() {
     $showCredit = $('.show-credit');
     $quote = $('#quote');
     $logoWrapper = $('.logo-wrapper');
+    $podcastName = $('.podcast-name'); 
 
     $brandSelect = $('select.filter_change-brand'); 
     $brandLogo = $('.logo-wrapper img'); 
@@ -225,6 +231,7 @@ $(function() {
 
     var quoteEl = document.querySelectorAll('.poster blockquote');
     var sourceEl = document.querySelectorAll('.source');
+    var podcastNameEl = document.querySelectorAll('.podcast-name');
 
     var quoteEditor = new MediumEditor(quoteEl, {
         disableToolbar: true,
@@ -234,5 +241,10 @@ $(function() {
     var sourceEditor = new MediumEditor(sourceEl, {
         disableToolbar: true,
         placeholder: 'Type your quote source here'
+    });
+
+    var podcastNameEditor = new MediumEditor(podcastNameEl, {
+        disableToolbar: true,
+        placeholder: 'Type podcast name here'
     });
 });

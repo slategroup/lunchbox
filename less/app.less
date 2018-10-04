@@ -423,7 +423,6 @@ h2 {
     position: relative;
     padding: @padding * 2;
     font-size: @base-font-size * 5;
-    line-height: 1 !important;
     overflow: hidden;
     color: @text-color;
 
@@ -650,10 +649,22 @@ h2 {
         }
     }
 
-    p.source {
+    p.source,
+    p.podcast-name {
         font-size: 1.25rem;
-        font-weight: 700; 
+        margin: 0; 
         text-transform: uppercase; 
+        &:focus {
+            border: none;
+            outline: none;
+        }
+        p {
+            margin: 0; 
+        }
+    }
+
+    p.source {
+        font-weight: 700; 
     }
 
     .show-credit {
@@ -664,11 +675,4 @@ h2 {
         color: @credit-color;
     }
 
-    p.source,
-    .show-credit {
-        &:focus {
-            border: none;
-            outline: none;
-        }
-    }
 }
