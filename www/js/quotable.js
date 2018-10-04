@@ -122,9 +122,9 @@ function adjustFontSize(size) {
 }
 
 $(function() {
-    $text = $('.poster blockquote p, .source');
+    $text = $('.social-graphic-quote blockquote p, .source');
     $save = $('#save');
-    $poster = $('.poster');
+    $poster = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
     $aspectRatioButtons = $('#aspect-ratio .btn');
     $fontSize = $('#fontsize');
@@ -169,7 +169,7 @@ $(function() {
     $themeButtons.on('click', function() {
         $themeButtons.removeClass('active');
         $(this).addClass('active');
-        $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
+        $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
                     .addClass('poster-' + $(this).attr('id'));
     });
 
