@@ -13,28 +13,9 @@ var $podcastName = null;
 
 var quotes = [
     {
-        "quote": "I've made a huge mistake.",
-        "source": "G.O.B.", 
-        "podcastName": "Test podcast", 
+        "quote": "The quick brown fox jumps over the lazy dog.",
+        "source": "Some Person", 
         "size": 30
-    },
-    {
-        "quote": "Annyong.",
-        "source": "Annyong",
-        "podcastName": "Test podcast",
-        "size": 30
-    },
-    {
-        "quote": "STEVE HOLT!",
-        "source": "Steve Holt",
-        "podcastName": "Test podcast",
-        "size": 30
-    },
-    {
-        "quote": "Whoa, whoa, whoa. There's still plenty of meat on that bone. Now you take this home, throw it in a pot, add some broth, a potato. Baby, you've got a stew going.",
-        "source": "Carl Weathers",
-        "podcastName": "Test podcast",
-        "size": 20
     }
 ];
 
@@ -140,6 +121,7 @@ $(function() {
     }
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
+    $podcastName.html(quote.podcastName);
     processText();
 
     $save.on('click', saveImage);
@@ -151,6 +133,7 @@ $(function() {
 
         var $brandSelected = $('.filter_change-brand option:selected'); 
         var $brandSelectedID = $brandSelected.attr('id');
+        var $brandSelectedValue = $brandSelected.attr('value');
 
         // image file matches ID on select option
         $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
@@ -164,6 +147,12 @@ $(function() {
             console.log('not slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
             $('.filter_change-color #raisin, .filter_change-color #plum').attr('disabled','disabled');
+        }
+
+        if ($brandSelectedID != 'slate') {
+            $podcastName.html($brandSelectedValue); 
+        } else {
+            $podcastName.html(''); 
         }
     });
 
@@ -245,6 +234,6 @@ $(function() {
 
     var podcastNameEditor = new MediumEditor(podcastNameEl, {
         disableToolbar: true,
-        placeholder: 'Type podcast name here'
+        placeholder: ''
     });
 });
