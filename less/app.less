@@ -421,7 +421,7 @@ h2 {
     -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.15);
     position: relative;
-    padding: @padding * 2;
+    padding: @padding;
     font-size: @base-font-size * 5;
     overflow: hidden;
     color: @text-color;
@@ -435,12 +435,12 @@ h2 {
         padding: @padding;
     }
 
-    .quote& {
+    /*.quote& {
         .left-quote {
             top: @padding;
             left: @padding;
         }
-    }
+    }*/
 
     blockquote {
         margin-bottom: 20px;
@@ -460,7 +460,6 @@ h2 {
         @media screen and (min-width: @screen-sm-max){
             height: 472.5px; // half x 1.5
             width: 900px; // half x 1.5
-            padding: @padding;
         }
     }
     // square
@@ -470,7 +469,6 @@ h2 {
         @media screen and (min-width: @screen-sm-max){
             height: 640px; 
             width: 640px; 
-            padding: @padding * 2;
         }
     }
 
@@ -590,23 +588,6 @@ h2 {
         }
     }*/
 
-    .quote& {
-        .left-quote {
-            content:@quote-begin-symbol;
-            display: block;
-            position: absolute;
-            top: @padding * 2;
-            left: @padding * 2;
-            font-weight: @quote-font-weight;
-            margin-left: @quote-mark-margin;
-        }
-    }
-
-    .left-quote,
-    .right-quote {
-        display: none;
-    }
-
     blockquote {
         display: block;
         font-family: @serif-font-family;
@@ -625,24 +606,39 @@ h2 {
             font-weight: inherit;
             margin: 0;
             line-height: 115%;
+            position: relative;
 
             span {
                 line-height: inherit !important;
             }
         }
 
+        // quotation styling
+        p.quotation-marks {
+            display: inline;
+            &:before, 
+            &:after {
+                background-repeat: no-repeat;
+                background-size: 100%;
+                content: ''; 
+                position: absolute;
+                height: (@padding / 2);
+                width: (@padding / 2);
+            }
+            &:before {
+                background-image: url('../img/quote_start.png');
+                left: -30px;
+                top: -10px;
+            }
+            &:after {
+                background-image: url('../img/quote_end.png');
+                right: -30px;
+            }
+        }
+
         &:last-child {
             color: red;
         }
-
-        /*.quote& {
-
-            p:last-child:after {
-                content: @quote-end-symbol;
-                font-weight: @quote-font-weight;
-            }
-
-        }*/
 
         .show-credit {
             line-height: 1.2 !important;
@@ -665,14 +661,6 @@ h2 {
 
     p.source {
         font-weight: 700; 
-    }
-
-    .show-credit {
-        display: block;
-        text-transform: uppercase;
-        font-size: @base-font-size * 1.2;
-        margin-top: @credit-margin;
-        color: @credit-color;
     }
 
 }

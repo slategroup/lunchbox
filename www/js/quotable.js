@@ -126,7 +126,20 @@ $(function() {
 
     $save.on('click', saveImage);
 
+    // change graphic crop
+    $aspectRatioButtons.on('click', function() {
+        $aspectRatioButtons.removeClass().addClass('btn btn-primary');
+        $(this).addClass('active');
+        $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
 
+        if ($poster.hasClass('twitter')) {
+            adjustFontSize(32);
+            $fontSize.val(32);
+        } else {
+            adjustFontSize(90);
+            $fontSize.val(90);
+        }
+    });
 
     // change brand logo
     $brandSelect.on('change', function() { 
@@ -181,19 +194,8 @@ $(function() {
 
     }); 
 
-
-    $aspectRatioButtons.on('click', function() {
-        $aspectRatioButtons.removeClass().addClass('btn btn-primary');
-        $(this).addClass('active');
-        $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
-
-        if ($poster.hasClass('twitter')) {
-            adjustFontSize(32);
-            $fontSize.val(32);
-        } else {
-            adjustFontSize(90);
-            $fontSize.val(90);
-        }
+    $fontSize.on('change', function() {
+        adjustFontSize($(this).val());
     });
 
     $quote.on('click', function() {
@@ -201,14 +203,10 @@ $(function() {
         $poster.toggleClass('quote');
     });
 
-    $fontSize.on('change', function() {
-        adjustFontSize($(this).val());
-    });
-
-    $show.on('keyup', function() {
+    /*$show.on('keyup', function() {
         var inputText = $(this).val();
         $showCredit.text(inputText);
-    });
+    });*/
 
     // // This event is interfering with the medium editor in some browsers
     // $('blockquote').on('keyup', function(){
