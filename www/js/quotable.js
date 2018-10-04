@@ -12,19 +12,9 @@ var $logoWrapper = null;
 
 var quotes = [
     {
-        "quote": "I'd been drinking.",
-        "source": "Dennis Rodman", 
-        "size": 30
-    },
-    {
         "quote": "I've made a huge mistake.",
         "source": "G.O.B.", 
         "size": 30
-    },
-    {
-        "quote": "Yes, I have smoked crack cocaine",
-        "source": "Toronto Mayor Rob Ford",
-        "size": 20
     },
     {
         "quote": "Annyong.",
@@ -84,9 +74,9 @@ function saveImage() {
     }
 
     // make sure source begins with em dash
-    if (!$source.text().match(/^[\u2014]/g)) {
+    /*if (!$source.text().match(/^[\u2014]/g)) {
         $source.html('&mdash;&thinsp;' + $source.text());
-    }
+    }*/
 
     $('canvas').remove();
     processText();
@@ -143,7 +133,7 @@ $(function() {
         adjustFontSize(quote.size);
     }
     $('blockquote p').text(quote.quote);
-    $source.html('&mdash;&thinsp;' + quote.source);
+    $source.html(quote.source);
     processText();
 
     $save.on('click', saveImage);
