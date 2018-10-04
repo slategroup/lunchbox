@@ -133,8 +133,10 @@ $(function() {
     $showCredit = $('.show-credit');
     $quote = $('#quote');
     $logoWrapper = $('.logo-wrapper');
-    $brandSelect = $('.filter_change-brand'); 
+
+    $brandSelect = $('select.filter_change-brand'); 
     $brandLogo = $('.logo-wrapper img'); 
+    $colorSelect = $('select.filter_change-color'); 
 
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
@@ -150,27 +152,32 @@ $(function() {
 
     // change brand logo
     $brandSelect.on('change', function() { 
-        var brandSelected = $('.filter_change-brand option:selected').attr('id');
+
+        var $brandSelected = $('.filter_change-brand option:selected'); 
+        var brandSelectedID = $brandSelected.attr('id');
 
         // image file matches ID on select option
-        $brandLogo.attr('src','../img/brand/' + brandSelected + '.png' );
+        $brandLogo.attr('src','../img/brand/' + brandSelectedID + '.png' );
 
         // disabled bg color options based on brand selection
-        if (brandSelected === 'slate') {
-            $themeButtons.removeClass('disabled');
-            $('.filter_change-color #brand-color').addClass('disabled'); 
+        if (brandSelectedID === 'slate') {
+            console.log('slate'); 
+            $('.filter_change-color option').removeAttr('disabled'); 
+            $('.filter_change-color #brand-color').attr('disabled','disabled'); 
         } else {
-            $themeButtons.removeClass('disabled');
-            $('.filter_change-color #raisin, .filter_change-color #plum').addClass('disabled');
+            console.log('not slate'); 
+            $('.filter_change-color option').removeAttr('disabled'); 
+            $('.filter_change-color #raisin, .filter_change-color #plum').attr('disabled','disabled');
         }
     });
 
     // change background color
-    $themeButtons.on('click', function() {
-        $themeButtons.removeClass('active');
-        $(this).addClass('active');
+    $colorSelect.on('change', function() {
+
+        var $colorSelected = $('.filter_change-color option:selected'); 
+
         $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
-                    .addClass('poster-' + $(this).attr('id'));
+                    .addClass('poster-' + $colorSelected.attr('id'));
     });
 
 
