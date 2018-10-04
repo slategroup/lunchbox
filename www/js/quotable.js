@@ -154,13 +154,13 @@ $(function() {
     $brandSelect.on('change', function() { 
 
         var $brandSelected = $('.filter_change-brand option:selected'); 
-        var brandSelectedID = $brandSelected.attr('id');
+        var $brandSelectedID = $brandSelected.attr('id');
 
         // image file matches ID on select option
-        $brandLogo.attr('src','../img/brand/' + brandSelectedID + '.png' );
+        $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
 
         // disabled bg color options based on brand selection
-        if (brandSelectedID === 'slate') {
+        if ($brandSelectedID === 'slate') {
             console.log('slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
             $('.filter_change-color #brand-color').attr('disabled','disabled'); 
@@ -180,6 +180,21 @@ $(function() {
                     .addClass('poster-' + $colorSelected.attr('id'));
     });
 
+    // make slate logo white if background calls for it
+    $('.filters select').on('change', function() {
+        // is there a way to not rewrite these...???
+        var $brandSelected = $('.filter_change-brand option:selected'); 
+        var $brandSelectedID = $brandSelected.attr('id');
+        var $colorSelected = $('.filter_change-color option:selected');
+        var $colorSelectedID = $colorSelected.attr('id');
+
+        if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
+            $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '_white.png' );
+        } else {
+            $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
+        }
+
+    }); 
 
 
     $aspectRatioButtons.on('click', function() {
