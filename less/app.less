@@ -635,6 +635,27 @@ h2 {
                 right: -30px;
             }
         }
+        p.quotation-mark-white {
+            display: inline;
+            &:before, 
+            &:after {
+                background-repeat: no-repeat;
+                background-size: 100%;
+                content: ''; 
+                position: absolute;
+                height: (@padding / 2);
+                width: (@padding / 2);
+            }
+            &:before {
+                background-image: url('../img/quote_start_white.png');
+                left: -30px;
+                top: -10px;
+            }
+            &:after {
+                background-image: url('../img/quote_end_white.png');
+                right: -30px;
+            }
+        }
 
         &:last-child {
             color: red;

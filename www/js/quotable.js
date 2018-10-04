@@ -185,11 +185,20 @@ $(function() {
         var $brandSelectedID = $brandSelected.attr('id');
         var $colorSelected = $('.filter_change-color option:selected');
         var $colorSelectedID = $colorSelected.attr('id');
+        var $styleSelected = $('.filter_change-style option:selected');
+        var $styleSelectedID = $styleSelected.attr('id');
 
         if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
             $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '_white.png' );
         } else {
             $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
+        }
+
+        if (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum')) {
+            if ($styleSelectedID === 'quotes') {
+                $('blockquote p').removeClass();
+                $('blockquote p').addClass('quotation-mark-white');
+            }
         }
 
     }); 
