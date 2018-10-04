@@ -133,6 +133,8 @@ $(function() {
     $showCredit = $('.show-credit');
     $quote = $('#quote');
     $logoWrapper = $('.logo-wrapper');
+    $brandSelect = $('.filter_change-brand'); 
+    $brandLogo = $('.logo-wrapper img'); 
 
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
@@ -145,8 +147,6 @@ $(function() {
     $save.on('click', saveImage);
 
 
-    $brandSelect = $('.filter_change-brand'); 
-    $brandLogo = $('.logo-wrapper img'); 
 
     // change brand logo
     $brandSelect.on('change', function() { 
@@ -158,10 +158,10 @@ $(function() {
         // disabled bg color options based on brand selection
         if (brandSelected === 'slate') {
             $themeButtons.removeClass('disabled');
-            $('.filter_change-color #theme4').addClass('disabled'); 
+            $('.filter_change-color #brand-color').addClass('disabled'); 
         } else {
             $themeButtons.removeClass('disabled');
-            $('.filter_change-color #theme2, .filter_change-color #theme3').addClass('disabled');
+            $('.filter_change-color #raisin, .filter_change-color #plum').addClass('disabled');
         }
     });
 
