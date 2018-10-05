@@ -169,6 +169,9 @@ $(function() {
         } else {
             $podcastName.html(''); 
         }
+
+        $poster.removeClass('slow-burn trumpcast')
+                    .addClass($brandSelected.attr('id'));
     });
 
     // change background color
