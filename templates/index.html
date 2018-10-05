@@ -2,56 +2,73 @@
 
 {% block content %}
 <div class="content">
-    <div class="poster-wrapper">
-        <div class="poster quote poster-news">
-            <span class="left-quote">&ldquo;</span>
-            <blockquote><p></p></blockquote>
-
-            <p class="source"></p>
-            <p class="show-credit"></p>
-
-            <p class="logo-wrapper"></p>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="form controls col-md-12">
-                <div class="controls-wrapper">
+                <h2>Customize your graphic:</h2>
+                <div class="filters">
+                    <div class="form-group">
+                        <label for="aspect-ratio">Select size:</label>
+                        <div id="aspect-ratio" class="btn-group">
+                            <button id="twitter" class="btn active">Twitter</button>
+                            <button id="facebook" class="btn">Facebook</button>
+                            <button id="square" class="btn">Square</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="filter_change-brand">Choose Brand:</label>
+                        <select class="filter_change-brand">
+                            <option id="slate" value="Slate" selected>Slate</option>
+                            <option id="slow-burn" value="Slow Burn">Slow Burn</option>
+                            <option id="trumpcast" value="Trumpcast">Trumpcast</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filter_change-color">Choose Background Color:</label>
+                        <select class="filter_change-color">
+                            <option id="white">White</option>
+                            <option id="raisin">Raisin</option>
+                            <option id="plum">Plum</option>
+                            <option id="brand-color" disabled>Brand Color</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="fontsize">Font size</label>
                         <input id="fontsize" name="fontsize" type="range" min="24" max="120" value="90">
                     </div>
                     <div class="form-group">
-                        <label for="theme">Theme</label>
-                        <div id="theme" class="btn-group-vertical">
-                            <button id="theme1" class="btn btn-primary active">Theme 1</button>
-                            <button id="theme2" class="btn btn-primary">Theme 2</button>
-                            <button id="theme3" class="btn btn-primary">Theme 3</button>
-                            <button id="theme4" class="btn btn-primary">Theme 4</button>
-                        </div>
+                        <label for="filter_change-style">Quote Style</label>
+                        <select class="filter_change-style">
+                            <option id="quotes">Quotes</option>
+                            <option id="brackets">Brackets</option>
+                            <option id="none">None</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="aspect-ratio">Aspect ratio</label>
-                        <div id="aspect-ratio" class="btn-group">
-                            <button id="sixteen-by-nine" class="btn btn-primary">16:9 <i class="fa fa-twitter"></i></button>
-                            <button id="square" class="btn btn-primary active">Square</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="quote">Quotation marks</label>
-                        <div id="quote" class="btn-group">
-                            <button class="btn btn-primary active">Show</button>
-                            <button class="btn btn-primary">Hide</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="show">Attribution <span class="help">(e.g. Morning Edition)</span></label>
                         <input id="show" class="form-control" name="fontsize" type="text">
-                    </div>
+                    </div>--> 
                     <div class="form-group">
                         <button id="save" class="btn btn-lg btn-primary">Save image</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="poster-wrapper">
+        <div class="social-graphic-quote poster">
+            <!-- quote --> 
+            <blockquote>
+                <p class="js_quotation-marks"></p>
+            </blockquote>
+
+            <!-- attribution --> 
+            <p class="source"></p>
+            <p class="podcast-name"></p>
+
+            <!-- logo --> 
+            <div class="logo-wrapper">
+                <img src="../img/brand/slate.png" />
             </div>
         </div>
     </div>

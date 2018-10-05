@@ -9,35 +9,13 @@ var $show = null;
 var $source = null;
 var $quote = null;
 var $logoWrapper = null;
+var $podcastName = null; 
 
 var quotes = [
     {
-        "quote": "I'd been drinking.",
-        "source": "Dennis Rodman"
-    },
-    {
-        "quote": "I've made a huge mistake.",
-        "source": "G.O.B."
-    },
-    {
-        "quote": "Yes, I have smoked crack cocaine",
-        "source": "Toronto Mayor Rob Ford",
-        "size": 65
-    },
-    {
-        "quote": "Annyong.",
-        "source": "Annyong",
-        "size": 90
-    },
-    {
-        "quote": "STEVE HOLT!",
-        "source": "Steve Holt",
-        "size": 65
-    },
-    {
-        "quote": "Whoa, whoa, whoa. There's still plenty of meat on that bone. Now you take this home, throw it in a pot, add some broth, a potato. Baby, you've got a stew going.",
-        "source": "Carl Weathers",
-        "size": 40
+        "quote": "The quick brown fox jumps over the lazy dog.",
+        "source": "Some Person", 
+        "size": 30
     }
 ];
 
@@ -61,7 +39,7 @@ function convertToSlug(text) {
 }
 
 function processText() {
-    $text = $('.poster blockquote p, .source');
+    $text = $('.poster blockquote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
         $(this).html(smarten(rawText)).find('br').remove();
@@ -82,9 +60,9 @@ function saveImage() {
     }
 
     // make sure source begins with em dash
-    if (!$source.text().match(/^[\u2014]/g)) {
+    /*if (!$source.text().match(/^[\u2014]/g)) {
         $source.html('&mdash;&thinsp;' + $source.text());
-    }
+    }*/
 
     $('canvas').remove();
     processText();
@@ -120,9 +98,9 @@ function adjustFontSize(size) {
 }
 
 $(function() {
-    $text = $('.poster blockquote p, .source');
+    $text = $('.social-graphic-quote blockquote p, .source, .podcast-name');
     $save = $('#save');
-    $poster = $('.poster');
+    $poster = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
     $aspectRatioButtons = $('#aspect-ratio .btn');
     $fontSize = $('#fontsize');
@@ -131,30 +109,31 @@ $(function() {
     $showCredit = $('.show-credit');
     $quote = $('#quote');
     $logoWrapper = $('.logo-wrapper');
+    $podcastName = $('.podcast-name'); 
+
+    $brandSelect = $('select.filter_change-brand'); 
+    $brandLogo = $('.logo-wrapper img'); 
+    $colorSelect = $('select.filter_change-color'); 
+    $styleSelect = $('select.filter_change-style'); 
 
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
         adjustFontSize(quote.size);
     }
     $('blockquote p').text(quote.quote);
-    $source.html('&mdash;&thinsp;' + quote.source);
+    $source.html(quote.source);
+    $podcastName.html(quote.podcastName);
     processText();
 
     $save.on('click', saveImage);
 
-    $themeButtons.on('click', function() {
-        $themeButtons.removeClass().addClass('btn btn-primary');
-        $(this).addClass('active');
-        $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
-                    .addClass('poster-' + $(this).attr('id'));
-    });
-
+    // change graphic crop
     $aspectRatioButtons.on('click', function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
-        $poster.removeClass('square sixteen-by-nine').addClass($(this).attr('id'));
+        $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
 
-        if ($poster.hasClass('sixteen-by-nine')) {
+        if ($poster.hasClass('twitter')) {
             adjustFontSize(32);
             $fontSize.val(32);
         } else {
@@ -163,19 +142,114 @@ $(function() {
         }
     });
 
-    $quote.on('click', function() {
-        $(this).find('button').toggleClass('active');
-        $poster.toggleClass('quote');
+    // change brand logo
+    $brandSelect.on('change', function() { 
+
+        var $brandSelected = $('.filter_change-brand option:selected'); 
+        var $brandSelectedID = $brandSelected.attr('id');
+        var $brandSelectedValue = $brandSelected.attr('value');
+
+        // image file matches ID on select option
+        $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
+
+        // disabled bg color options based on brand selection
+        if ($brandSelectedID === 'slate') {
+            console.log('slate'); 
+            $('.filter_change-color option').removeAttr('disabled'); 
+            $('.filter_change-color #brand-color').attr('disabled','disabled'); 
+        } else {
+            console.log('not slate'); 
+            $('.filter_change-color option').removeAttr('disabled'); 
+            $('.filter_change-color #raisin, .filter_change-color #plum').attr('disabled','disabled');
+        }
+
+        // adds podcast name if podcast brand is selected
+        if ($brandSelectedID != 'slate') {
+            $podcastName.html($brandSelectedValue); 
+        } else {
+            $podcastName.html(''); 
+        }
+
+        $poster.removeClass('slow-burn trumpcast')
+                    .addClass($brandSelected.attr('id'));
     });
+
+    // change background color
+    $colorSelect.on('change', function() {
+
+        var $colorSelected = $('.filter_change-color option:selected'); 
+
+        $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
+                    .addClass('poster-' + $colorSelected.attr('id'));
+
+    });
+
+    // make certain elements white if background calls for it
+    $('.filters select').on('change', function() {
+        // is there a way to not rewrite these...???
+        var $brandSelected = $('.filter_change-brand option:selected'); 
+        var $brandSelectedID = $brandSelected.attr('id');
+        var $colorSelected = $('.filter_change-color option:selected');
+        var $colorSelectedID = $colorSelected.attr('id');
+        var $styleSelected = $('.filter_change-style option:selected');
+        var $styleSelectedID = $styleSelected.attr('id');
+
+        // changes slate logo
+        if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
+            $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '_white.png' );
+        } else {
+            $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
+        }
+
+        console.log($styleSelectedID); 
+        // changes quote style and color
+        // this is not the most elegant solution i am aware
+        // 'brand-color' might need to be removed depending on the brand colors
+        if (($colorSelectedID === 'raisin') || 
+            ($colorSelectedID === 'plum') || 
+            ($colorSelectedID === 'brand-color')) {
+
+            if ($styleSelectedID === 'quotes') {
+                $('blockquote p').removeClass();
+                $('blockquote p').addClass('js_quotation-marks-white');
+            } else if ($styleSelectedID === 'brackets') {
+                $('blockquote p').removeClass();
+                $('blockquote p').addClass('js_brackets-white');
+            } else {
+                $('blockquote p').removeClass();
+            }
+
+        } else if ($styleSelectedID === 'brackets') {
+
+            $('blockquote p').removeClass();
+            $('blockquote p').addClass('js_brackets');
+
+        } else if ($styleSelectedID === 'none') {
+
+            $('blockquote p').removeClass();
+
+        } else {
+
+            $('blockquote p').removeClass();
+            $('blockquote p').addClass('js_quotation-marks');
+
+        }
+
+    }); 
 
     $fontSize.on('change', function() {
         adjustFontSize($(this).val());
     });
 
-    $show.on('keyup', function() {
+    $quote.on('click', function() {
+        $(this).find('button').toggleClass('active');
+        $poster.toggleClass('quote');
+    });
+
+    /*$show.on('keyup', function() {
         var inputText = $(this).val();
         $showCredit.text(inputText);
-    });
+    });*/
 
     // // This event is interfering with the medium editor in some browsers
     // $('blockquote').on('keyup', function(){
@@ -187,6 +261,7 @@ $(function() {
 
     var quoteEl = document.querySelectorAll('.poster blockquote');
     var sourceEl = document.querySelectorAll('.source');
+    var podcastNameEl = document.querySelectorAll('.podcast-name');
 
     var quoteEditor = new MediumEditor(quoteEl, {
         disableToolbar: true,
@@ -196,5 +271,10 @@ $(function() {
     var sourceEditor = new MediumEditor(sourceEl, {
         disableToolbar: true,
         placeholder: 'Type your quote source here'
+    });
+
+    var podcastNameEditor = new MediumEditor(podcastNameEl, {
+        disableToolbar: true,
+        placeholder: ''
     });
 });

@@ -123,6 +123,15 @@ def tests():
     """
     local('nosetests')
 
+@task
+def gh_pages():
+
+    render.render_all()
+
+    local('rsync -vr www/ docs/')
+
+
+
 """
 Deployment
 
