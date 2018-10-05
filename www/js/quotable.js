@@ -227,8 +227,6 @@ $(function() {
             $('blockquote p').addClass('js_quotation-marks');
 
         }
-        
-
 
     }); 
 
