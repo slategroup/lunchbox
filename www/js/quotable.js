@@ -181,6 +181,7 @@ $(function() {
 
         $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
                     .addClass('poster-' + $colorSelected.attr('id'));
+
     });
 
     // make certain elements white if background calls for it
@@ -203,7 +204,10 @@ $(function() {
         console.log($styleSelectedID); 
         // changes quote style and color
         // this is not the most elegant solution i am aware
-        if (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum')) {
+        // 'brand-color' might need to be removed depending on the brand colors
+        if (($colorSelectedID === 'raisin') || 
+            ($colorSelectedID === 'plum') || 
+            ($colorSelectedID === 'brand-color')) {
 
             if ($styleSelectedID === 'quotes') {
                 $('blockquote p').removeClass();
