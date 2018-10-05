@@ -150,7 +150,7 @@ $(function() {
         var $brandSelectedValue = $brandSelected.attr('value');
 
         // image file matches ID on select option
-        $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
+        $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
 
         // disabled bg color options based on brand selection
         if ($brandSelectedID === 'slate') {
@@ -196,9 +196,9 @@ $(function() {
 
         // changes slate logo
         if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
-            $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '_white.png' );
+            $brandLogo.attr('src','img/brand/' + $brandSelectedID + '_white.png' );
         } else {
-            $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
+            $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
         }
 
         console.log($styleSelectedID); 
