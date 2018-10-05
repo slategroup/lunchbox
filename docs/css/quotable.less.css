@@ -1668,16 +1668,16 @@ table {
 }
 @font-face {
   font-family: "Retina";
-  src: url("../www/fonts/Retina-Book.woff2") format("woff2");
+  src: url("../font/Retina-Book.woff2") format("woff2");
 }
 @font-face {
   font-family: "Retina";
   font-weight: 700;
-  src: url("../www/fonts/Retina-Bold.woff2") format("woff2");
+  src: url("../font/Retina-Bold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Register";
-  src: url("../www/fonts/Register-Heavy.woff2") format("woff2");
+  src: url("../font/Register-Heavy.woff2") format("woff2");
 }
 html {
   box-sizing: border-box;
@@ -1817,7 +1817,7 @@ canvas {
 .poster {
   background: #ffffff;
   position: relative;
-  padding: 60px;
+  padding: 100px;
   font-size: 85px;
   line-height: 1 !important;
   overflow: hidden;
@@ -1830,55 +1830,55 @@ canvas {
   }
 }
 .poster.poster-theme1 .logo-wrapper {
-  background-image: url('../img/icon-lunchbox.png');
+  background-image: url('../img/slate_logo_raisin.png');
   background-repeat: no-repeat;
-  background-size: 120px 96px;
-  width: 150px;
-  height: 126px;
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
-.sixteen-by-nine.poster.poster-theme1 .logo-wrapper {
-  background-size: 100px 80px;
-  width: 130px;
-  height: 110px;
+.twitter.poster.poster-theme1 .logo-wrapper {
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
 .poster.poster-theme2 {
-  background: #41474e;
-  color: #dbe0e6;
+  background: #2c0022;
+  color: #ffffff;
 }
 .poster.poster-theme2 .logo-wrapper {
-  background: #41474e;
-  color: #dbe0e6;
-  background-image: url('../img/icon-lunchbox-white.png');
+  background: #2c0022;
+  color: #ffffff;
+  background-image: url('../img/slate_logo_white.png');
   background-repeat: no-repeat;
-  background-size: 120px 96px;
-  width: 150px;
-  height: 126px;
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
-.sixteen-by-nine.poster.poster-theme2 .logo-wrapper {
-  background-size: 100px 80px;
-  width: 130px;
-  height: 110px;
+.twitter.poster.poster-theme2 .logo-wrapper {
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
 .poster.poster-theme2 .show-credit {
   color: #999999;
 }
 .poster.poster-theme3 {
-  background: #999999;
-  color: #000000;
+  background: #6a0432;
+  color: #ffffff;
 }
 .poster.poster-theme3 .logo-wrapper {
-  background: #999999;
-  color: #000000;
-  background-image: url('../img/icon-lunchbox-black.png');
+  background: #6a0432;
+  color: #ffffff;
+  background-image: url('../img/slate_logo_white.png');
   background-repeat: no-repeat;
-  background-size: 120px 96px;
-  width: 150px;
-  height: 126px;
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
-.sixteen-by-nine.poster.poster-theme3 .logo-wrapper {
-  background-size: 100px 80px;
-  width: 130px;
-  height: 110px;
+.twitter.poster.poster-theme3 .logo-wrapper {
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
 .poster.poster-theme3 .show-credit {
   color: #333333;
@@ -1893,49 +1893,49 @@ canvas {
   background-image: url('../img/icon-lunchbox-white.png');
   background-repeat: no-repeat;
   background-size: 120px 96px;
-  width: 150px;
-  height: 126px;
+  width: 170px;
+  height: 146px;
 }
-.sixteen-by-nine.poster.poster-theme4 .logo-wrapper {
+.twitter.poster.poster-theme4 .logo-wrapper {
   background-size: 100px 80px;
-  width: 130px;
-  height: 110px;
+  width: 150px;
+  height: 130px;
 }
 .poster.poster-theme4 .show-credit {
   color: #cccccc;
 }
-.poster.sixteen-by-nine {
+.poster.twitter {
   height: 360px;
-  padding: 30px;
+  padding: 50px;
 }
-.quote.poster.sixteen-by-nine .left-quote {
-  top: 30px;
-  left: 30px;
+.quote.poster.twitter .left-quote {
+  top: 50px;
+  left: 50px;
 }
-.poster.sixteen-by-nine blockquote {
+.poster.twitter blockquote {
   margin-bottom: 20px;
 }
-.poster.sixteen-by-nine .logo-wrapper {
-  padding: 30px;
+.poster.twitter .logo-wrapper {
+  padding: 50px;
 }
-.poster.sixteen-by-nine .logo-wrapper img {
+.poster.twitter .logo-wrapper img {
   width: 150px;
 }
-.poster-music.poster.sixteen-by-nine .logo-wrapper {
-  padding-bottom: 20px;
+.poster-music.poster.twitter .logo-wrapper {
+  padding-bottom: 40px;
 }
-.poster.sixteen-by-nine p.source {
+.poster.twitter p.source {
   font-size: 22.1px;
 }
-.poster.sixteen-by-nine .show-credit {
+.poster.twitter .show-credit {
   font-size: 18.7px;
 }
 .quote.poster .left-quote {
   content: "\201C";
   display: block;
   position: absolute;
-  top: 60px;
-  left: 60px;
+  top: 100px;
+  left: 100px;
   font-weight: bold;
   margin-left: -0.55em;
 }
@@ -2002,20 +2002,20 @@ canvas {
   bottom: 0;
   right: 0;
   text-align: right;
-  padding: 30px 60px 60px;
+  padding: 50px 100px 100px;
   margin: 0;
   font-size: 46px;
   background: #ffffff;
-  background-image: url('../img/icon-lunchbox.png');
+  background-image: url('../img/slate_logo_raisin.png');
   background-repeat: no-repeat;
-  background-size: 120px 96px;
-  width: 150px;
-  height: 126px;
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
-.sixteen-by-nine.poster .logo-wrapper {
-  background-size: 100px 80px;
-  width: 130px;
-  height: 110px;
+.twitter.poster .logo-wrapper {
+  background-size: 150px 47px;
+  width: 200px;
+  height: 97px;
 }
 .poster .logo-wrapper .logo {
   display: none !important;

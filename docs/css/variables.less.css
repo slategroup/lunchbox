@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Retina";
-  src: url("../www/fonts/Retina-Book.woff2") format("woff2");
+  src: url("../font/Retina-Book.woff2") format("woff2");
 }
 @font-face {
   font-family: "Retina";
   font-weight: 700;
-  src: url("../www/fonts/Retina-Bold.woff2") format("woff2");
+  src: url("../font/Retina-Bold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Register";
-  src: url("../www/fonts/Register-Heavy.woff2") format("woff2");
+  src: url("../font/Register-Heavy.woff2") format("woff2");
 }
