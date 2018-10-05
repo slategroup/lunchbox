@@ -114,6 +114,7 @@ $(function() {
     $brandSelect = $('select.filter_change-brand'); 
     $brandLogo = $('.logo-wrapper img'); 
     $colorSelect = $('select.filter_change-color'); 
+    $styleSelect = $('select.filter_change-style'); 
 
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
@@ -162,6 +163,7 @@ $(function() {
             $('.filter_change-color #raisin, .filter_change-color #plum').attr('disabled','disabled');
         }
 
+        // adds podcast name if podcast brand is selected
         if ($brandSelectedID != 'slate') {
             $podcastName.html($brandSelectedValue); 
         } else {
@@ -178,7 +180,7 @@ $(function() {
                     .addClass('poster-' + $colorSelected.attr('id'));
     });
 
-    // make slate logo white if background calls for it
+    // make certain elements white if background calls for it
     $('.filters select').on('change', function() {
         // is there a way to not rewrite these...???
         var $brandSelected = $('.filter_change-brand option:selected'); 
@@ -188,21 +190,45 @@ $(function() {
         var $styleSelected = $('.filter_change-style option:selected');
         var $styleSelectedID = $styleSelected.attr('id');
 
+        // changes slate logo
         if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
             $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '_white.png' );
         } else {
             $brandLogo.attr('src','../img/brand/' + $brandSelectedID + '.png' );
         }
 
+        console.log($styleSelectedID); 
+        // changes quote style and color
+        // this is not the most elegant solution i am aware
         if (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum')) {
+
             if ($styleSelectedID === 'quotes') {
                 $('blockquote p').removeClass();
-                $('blockquote p').addClass('quotation-marks-white');
-            } 
-        } else {
+                $('blockquote p').addClass('js_quotation-marks-white');
+            } else if ($styleSelectedID === 'brackets') {
+                $('blockquote p').removeClass();
+                $('blockquote p').addClass('js_brackets-white');
+            } else {
+                $('blockquote p').removeClass();
+            }
+
+        } else if ($styleSelectedID === 'brackets') {
+
             $('blockquote p').removeClass();
-            $('blockquote p').addClass('quotation-marks');
+            $('blockquote p').addClass('js_brackets');
+
+        } else if ($styleSelectedID === 'none') {
+
+            $('blockquote p').removeClass();
+
+        } else {
+
+            $('blockquote p').removeClass();
+            $('blockquote p').addClass('js_quotation-marks');
+
         }
+        
+
 
     }); 
 

@@ -614,7 +614,7 @@ h2 {
         }
 
         // quotation styling
-        p.quotation-marks {
+        p.js_quotation-marks {
             display: inline;
             &:before, 
             &:after {
@@ -635,7 +635,7 @@ h2 {
                 right: -30px;
             }
         }
-        p.quotation-marks-white {
+        p.js_quotation-marks-white { // repeats code bc there is a JS class switch
             display: inline;
             &:before, 
             &:after {
@@ -656,9 +656,49 @@ h2 {
                 right: -30px;
             }
         }
-
-        &:last-child {
-            color: red;
+        // bracket styling 
+        p.js_brackets {
+            &:before, 
+            &:after {
+                background-repeat: no-repeat;
+                background-size: 100%;
+                content: ''; 
+                position: absolute;
+                height: 15px;
+                width: 15px;
+            }
+            &:before {
+                background-image: url('../img/bracket_start.png');
+                left: -30px;
+                top: -20px;
+            }
+            &:after {
+                background-image: url('../img/bracket_end.png');
+                bottom: -20px;
+                right: -30px;
+            }
+        }
+        // bracket styling 
+        p.js_brackets-white {
+            &:before, 
+            &:after {
+                background-repeat: no-repeat;
+                background-size: 100%;
+                content: ''; 
+                position: absolute;
+                height: 15px;
+                width: 15px;
+            }
+            &:before {
+                background-image: url('../img/bracket_start_white.png');
+                left: -30px;
+                top: -20px;
+            }
+            &:after {
+                background-image: url('../img/bracket_end_white.png');
+                bottom: -20px;
+                right: -30px;
+            }
         }
 
         .show-credit {
