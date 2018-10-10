@@ -39,18 +39,25 @@ function convertToSlug(text) {
 }
 
 function processText() {
-    console.log($text); 
-    $text = $('.social-graphic-quote blockquote p');
+    $text = $('.social-graphic-quote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
-        console.log(rawText); 
-
-        var hyphenatedText = rawText.replace(/ +/g, '-').toLowerCase();
-        console.log(hyphenatedText); 
 
         $(this).html(smarten(rawText)).find('br').remove();
-        console.log($(this).html(rawText)); 
     });
+}
+
+function processFilename() {
+    $text = $('.social-graphic-quote blockquote p');
+    console.log($text); 
+
+    $text.each(function() {
+        var rawText = $.trim($(this).html().replace('.', ''));
+        console.log(rawText);
+
+        var filename = rawText.replace(/ +/g, '-').toLowerCase();
+        console.log(filename);
+    }); 
 }
 
 function saveImage() {
@@ -81,7 +88,7 @@ function saveImage() {
         window.oCanvas = window.oCanvas[0];
         var strDataURI = window.oCanvas.toDataURL();
 
-        var quote = $('blockquote').text().split(' ', 5);
+        var quote = $('blockquote').text().split(' ', 5); 
         var filename = convertToSlug(quote.join(' '));
 
         var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
@@ -131,6 +138,9 @@ $(function() {
     $source.html(quote.source);
     $podcastName.html(quote.podcastName);
     processText();
+
+    // nan's custom function that is very similar to others
+    processFilename(); 
 
     $save.on('click', saveImage);
 
