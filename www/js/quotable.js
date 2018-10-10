@@ -39,10 +39,17 @@ function convertToSlug(text) {
 }
 
 function processText() {
-    $text = $('.poster blockquote p, .source, .podcast-name');
+    console.log($text); 
+    $text = $('.social-graphic-quote blockquote p');
     $text.each(function() {
         var rawText = $.trim($(this).html());
+        console.log(rawText); 
+
+        var hyphenatedText = rawText.replace(/ +/g, '-').toLowerCase();
+        console.log(hyphenatedText); 
+
         $(this).html(smarten(rawText)).find('br').remove();
+        console.log($(this).html(rawText)); 
     });
 }
 
@@ -98,7 +105,7 @@ function adjustFontSize(size) {
 }
 
 $(function() {
-    $text = $('.social-graphic-quote blockquote p, .source, .podcast-name');
+    $text = $('.social-graphic-quote blockquote p');
     $save = $('#save');
     $poster = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
