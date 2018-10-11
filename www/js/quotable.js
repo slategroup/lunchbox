@@ -38,31 +38,19 @@ function convertToSlug(text) {
         .replace(/ +/g,'-');
 }
 
-function processText() {
+/*function processText() {
     $text = $('.social-graphic-quote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
 
         $(this).html(smarten(rawText)).find('br').remove();
     });
-}
+}*/
 
 function processFilename() {
     $text = $('.social-graphic-quote blockquote p');
-    //console.log($text); 
-
-    /*$text.each(function() {
-        var rawText = $.trim($(this).html().replace('.', ''));
-        console.log(rawText);
-
-        var filename = rawText.replace(/ +/g, '-').toLowerCase();
-    });*/
-
     var rawText = $.trim(($text).html().replace('.', ''));
-    //console.log(rawText);
-
     var filename = rawText.replace(/ +/g, '-').toLowerCase();
-    //console.log(filename); 
 
     return filename; 
 }
@@ -86,10 +74,7 @@ function saveImage() {
     }*/
 
     $('canvas').remove();
-    processText();
-
-    // nan's custom function that is very similar to others
-    processFilename(); 
+    //processText();
 
     html2canvas($poster, {
       onrendered: function(canvas) {
@@ -147,7 +132,7 @@ $(function() {
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
     $podcastName.html(quote.podcastName);
-    processText();
+    //processText();
 
     // nan's custom function that is very similar to others
     processFilename(); 
