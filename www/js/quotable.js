@@ -81,6 +81,9 @@ function saveImage() {
     $('canvas').remove();
     processText();
 
+    // nan's custom function that is very similar to others
+    processFilename(); 
+
     html2canvas($poster, {
       onrendered: function(canvas) {
         document.body.appendChild(canvas);
@@ -89,7 +92,12 @@ function saveImage() {
         var strDataURI = window.oCanvas.toDataURL();
 
         var quote = $('blockquote').text().split(' ', 5); 
-        var filename = convertToSlug(quote.join(' '));
+        //var filename = convertToSlug(quote.join(' '));
+
+
+        $text = $('.social-graphic-quote blockquote p');
+        var rawText = $.trim($text.html().replace('.', ''));
+        var filename = rawText.replace(/ +/g, '-').toLowerCase();
 
         var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
 
