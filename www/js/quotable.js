@@ -15,7 +15,7 @@ var quotes = [
     {
         "quote": "The quick brown fox jumps over the lazy dog.",
         "source": "Some Person", 
-        "size": 30
+        "size": 40
     }
 ];
 
@@ -145,13 +145,13 @@ $(function() {
         $(this).addClass('active');
         $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
 
-        if ($poster.hasClass('twitter')) {
+        /*if ($poster.hasClass('twitter')) {
             adjustFontSize(32);
             $fontSize.val(32);
         } else {
             adjustFontSize(90);
             $fontSize.val(90);
-        }
+        }*/
     });
 
     // change brand logo
