@@ -49,15 +49,22 @@ function processText() {
 
 function processFilename() {
     $text = $('.social-graphic-quote blockquote p');
-    console.log($text); 
+    //console.log($text); 
 
-    $text.each(function() {
+    /*$text.each(function() {
         var rawText = $.trim($(this).html().replace('.', ''));
         console.log(rawText);
 
         var filename = rawText.replace(/ +/g, '-').toLowerCase();
-        console.log(filename);
-    }); 
+    });*/
+
+    var rawText = $.trim(($text).html().replace('.', ''));
+    //console.log(rawText);
+
+    var filename = rawText.replace(/ +/g, '-').toLowerCase();
+    //console.log(filename); 
+
+    return filename; 
 }
 
 function saveImage() {
@@ -92,12 +99,7 @@ function saveImage() {
         var strDataURI = window.oCanvas.toDataURL();
 
         var quote = $('blockquote').text().split(' ', 5); 
-        //var filename = convertToSlug(quote.join(' '));
-
-
-        $text = $('.social-graphic-quote blockquote p');
-        var rawText = $.trim($text.html().replace('.', ''));
-        var filename = rawText.replace(/ +/g, '-').toLowerCase();
+        var filename = processFilename(); 
 
         var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
 
