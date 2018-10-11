@@ -78,6 +78,12 @@ function saveImage() {
 
     html2canvas($poster, {
       onrendered: function(canvas) {
+        /*var posterWidth = $('.poster').css('width').replace('px', ''); 
+        var posterHeight = $('.poster').css('height').replace('px', ''); 
+        var canvasWidth = posterWidth * 2; 
+        var canvasHeight = posterHeight * 2; */
+        //$('canvas').attr('width', canvasWidth).attr('height', canvasHeight); 
+
         document.body.appendChild(canvas);
         window.oCanvas = document.getElementsByTagName("canvas");
         window.oCanvas = window.oCanvas[0];
