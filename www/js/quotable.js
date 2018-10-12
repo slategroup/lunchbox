@@ -76,32 +76,64 @@ function saveImage() {
     $('canvas').remove();
     //processText();
 
-    html2canvas($poster, {
-      onrendered: function(canvas) {
-        /*var posterWidth = $('.poster').css('width').replace('px', ''); 
-        var posterHeight = $('.poster').css('height').replace('px', ''); 
-        var canvasWidth = posterWidth * 2; 
-        var canvasHeight = posterHeight * 2; */
-        //$('canvas').attr('width', canvasWidth).attr('height', canvasHeight); 
+    var w = $('.social-graphic-quote').css('width').replace('px', '');
+    var h = $('.social-graphic-quote').css('height').replace('px', '');
+    var quoteDownload = document.querySelector('.social-graphic-quote');
+    var testcanvas = document.createElement('canvas');
+    testcanvas.width = w*2;
+    testcanvas.height = h*2;
+    testcanvas.style.width = w + 'px';
+    testcanvas.style.height = h + 'px';
+    var context = testcanvas.getContext('2d');
+    context.scale(2,2);
+    //document.body.appendChild(testcanvas);
 
-        document.body.appendChild(canvas);
-        window.oCanvas = document.getElementsByTagName("canvas");
-        window.oCanvas = window.oCanvas[0];
-        var strDataURI = window.oCanvas.toDataURL();
+    // new function trying to increase the size of the downloaded image
+    html2canvas(quoteDownload, {
+        canvas: testcanvas,
+        onrendered: function (canvas) {
 
-        var quote = $('blockquote').text().split(' ', 5); 
-        var filename = processFilename(); 
+            document.body.appendChild(canvas);
+            window.oCanvas = document.getElementsByTagName("canvas");
+            window.oCanvas = window.oCanvas[0];
+            var strDataURI = window.oCanvas.toDataURL();
 
-        var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
+            //var quote = $('blockquote').text().split(' ', 5); 
+            var filename = processFilename(); 
 
-        a[0].click();
+            var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
 
-        a.remove();
+            a[0].click();
 
-        $('#download').attr('href', strDataURI).attr('target', '_blank');
-        $('#download').trigger('click');
-      }
+            a.remove();
+
+            $('#download').attr('href', strDataURI).attr('target', '_blank');
+            $('#download').trigger('click');
+        }
     });
+
+    // original function from forking the repo
+    /*html2canvas($poster, {
+        onrendered: function(canvas) {
+
+            document.body.appendChild(canvas);
+            window.oCanvas = document.getElementsByTagName("canvas");
+            window.oCanvas = window.oCanvas[0];
+            var strDataURI = window.oCanvas.toDataURL();
+
+            var quote = $('blockquote').text().split(' ', 5); 
+            var filename = processFilename(); 
+
+            var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
+
+            a[0].click();
+
+            a.remove();
+
+            $('#download').attr('href', strDataURI).attr('target', '_blank');
+            $('#download').trigger('click');
+        }
+    });*/
 }
 
 function adjustFontSize(size) {
