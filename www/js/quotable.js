@@ -78,6 +78,8 @@ function saveImage() {
 
     var w = $('.social-graphic-quote').css('width').replace('px', '');
     var h = $('.social-graphic-quote').css('height').replace('px', '');
+    //var w = 1000;
+    //var h = 1000;
     var quoteDownload = document.querySelector('.social-graphic-quote');
     var testcanvas = document.createElement('canvas');
     testcanvas.width = w*2;
@@ -89,16 +91,15 @@ function saveImage() {
     //document.body.appendChild(testcanvas);
 
     // new function trying to increase the size of the downloaded image
-    html2canvas(quoteDownload, {
-        canvas: testcanvas,
-        onrendered: function (canvas) {
+    html2canvas(quoteDownload, { canvas: testcanvas }).then(function(canvas) {
+        document.body.appendChild(canvas);
+        //onrendered: function (canvas) {
 
-            document.body.appendChild(canvas);
-            window.oCanvas = document.getElementsByTagName("canvas");
+            //document.body.appendChild(canvas);
+            /*window.oCanvas = document.getElementsByTagName("canvas");
             window.oCanvas = window.oCanvas[0];
             var strDataURI = window.oCanvas.toDataURL();
 
-            //var quote = $('blockquote').text().split(' ', 5); 
             var filename = processFilename(); 
 
             var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
@@ -108,8 +109,8 @@ function saveImage() {
             a.remove();
 
             $('#download').attr('href', strDataURI).attr('target', '_blank');
-            $('#download').trigger('click');
-        }
+            $('#download').trigger('click');*/
+        //}
     });
 
     // original function from forking the repo
