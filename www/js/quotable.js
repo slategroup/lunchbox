@@ -256,28 +256,41 @@ $(function() {
             ($colorSelectedID === 'brand-color')) {
 
             if ($styleSelectedID === 'quotes') {
-                $('blockquote p').removeClass();
-                $('blockquote p').addClass('js_quotation-marks-white');
+                //$('blockquote p').removeClass();
+                //$('blockquote p').addClass('js_quotation-marks-white');
+                $('blockquote img').show();
+                $('blockquote .img1').attr('src', 'img/quote_start_white.png'); 
+                $('blockquote .img2').attr('src', 'img/quote_end_white.png');
             } else if ($styleSelectedID === 'brackets') {
-                $('blockquote p').removeClass();
-                $('blockquote p').addClass('js_brackets-white');
+                //$('blockquote p').removeClass();
+                //$('blockquote p').addClass('js_brackets-white');
+                $('blockquote img').show();
+                $('blockquote .img1').attr('src', 'img/bracket_start_white.png'); 
+                $('blockquote .img2').attr('src', 'img/bracket_end_white.png');
             } else {
-                $('blockquote p').removeClass();
+                $('blockquote img').hide();
             }
 
         } else if ($styleSelectedID === 'brackets') {
 
-            $('blockquote p').removeClass();
-            $('blockquote p').addClass('js_brackets');
+            //$('blockquote p').removeClass();
+            //$('blockquote p').addClass('js_brackets'); 
+            $('blockquote img').show();
+            $('blockquote .img1').attr('src', 'img/bracket_start.png'); 
+            $('blockquote .img2').attr('src', 'img/bracket_end.png');
+
 
         } else if ($styleSelectedID === 'none') {
 
-            $('blockquote p').removeClass();
+            $('blockquote img').hide();
 
         } else {
 
-            $('blockquote p').removeClass();
-            $('blockquote p').addClass('js_quotation-marks');
+            //$('blockquote p').removeClass();
+            //$('blockquote p').addClass('js_quotation-marks');
+            $('blockquote img').show();
+            $('blockquote .img1').attr('src', 'img/quote_start.png'); 
+            $('blockquote .img2').attr('src', 'img/quote_end.png');
 
         }
 
