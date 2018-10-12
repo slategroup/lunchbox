@@ -341,44 +341,39 @@ h2 {
             display: inline;
             &:before, 
             &:after {
-                background-repeat: no-repeat;
-                background-size: 100%;
-                content: ''; 
+                //background-repeat: no-repeat;
+                //background-size: 100%;
+                color: @cherry;
                 position: absolute;
-                height: (@padding / 2);
-                width: (@padding / 2);
+                //height: (@padding / 2);
+                //width: (@padding / 2);
             }
             &:before {
-                background-image: url('../img/quote_start.png');
+                //background-image: url('../img/quote_start.png');
+                content: '“'; 
                 left: -35px;
-                top: -15px;
+                //top: -15px;
             }
             &:after {
-                background-image: url('../img/quote_end.png');
-                bottom: 15px;
-                right: -35px;
+                //background-image: url('../img/quote_end.png');
+                content: '”'; 
+                //bottom: 15px;
+                //right: -35px;
             }
         }
         p.js_quotation-marks-white { // repeats code bc there is a JS class switch
             display: inline;
             &:before, 
             &:after {
-                background-repeat: no-repeat;
-                background-size: 100%;
-                content: ''; 
+                color: @white;
                 position: absolute;
-                height: (@padding / 2);
-                width: (@padding / 2);
             }
             &:before {
-                background-image: url('../img/quote_start_white.png');
+                content: '“'; 
                 left: -35px;
-                top: -15px;
             }
             &:after {
-                background-image: url('../img/quote_end_white.png');
-                bottom: 15px;
-                right: -35px;
+                content: '”';
             }
         }
         // bracket styling 
