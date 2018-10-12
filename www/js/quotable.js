@@ -76,10 +76,9 @@ function saveImage() {
     $('canvas').remove();
     //processText();
 
+    // makes downloaded image 2x
     var w = $('.social-graphic-quote').css('width').replace('px', '');
     var h = $('.social-graphic-quote').css('height').replace('px', '');
-    //var w = 1000;
-    //var h = 1000;
     var quoteDownload = document.querySelector('.social-graphic-quote');
     var testcanvas = document.createElement('canvas');
     testcanvas.width = w*2;
@@ -88,29 +87,25 @@ function saveImage() {
     testcanvas.style.height = h + 'px';
     var context = testcanvas.getContext('2d');
     context.scale(2,2);
-    //document.body.appendChild(testcanvas);
 
     // new function trying to increase the size of the downloaded image
     html2canvas(quoteDownload, { canvas: testcanvas }).then(function(canvas) {
         document.body.appendChild(canvas);
-        //onrendered: function (canvas) {
 
-            //document.body.appendChild(canvas);
-            /*window.oCanvas = document.getElementsByTagName("canvas");
-            window.oCanvas = window.oCanvas[0];
-            var strDataURI = window.oCanvas.toDataURL();
+        window.oCanvas = document.getElementsByTagName("canvas");
+        window.oCanvas = window.oCanvas[0];
+        var strDataURI = window.oCanvas.toDataURL();
 
-            var filename = processFilename(); 
+        var filename = processFilename(); 
 
-            var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
+        var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
 
-            a[0].click();
+        a[0].click();
 
-            a.remove();
+        a.remove();
 
-            $('#download').attr('href', strDataURI).attr('target', '_blank');
-            $('#download').trigger('click');*/
-        //}
+        $('#download').attr('href', strDataURI).attr('target', '_blank');
+        $('#download').trigger('click');
     });
 
     // original function from forking the repo
