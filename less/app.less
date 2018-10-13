@@ -29,42 +29,9 @@ canvas {
 }
 
 header {
-    background: @raisin;
+    color: @cherry;
     margin: 0;
-    padding: 1.5rem 1rem;
-    color: @white;
-
-    /*.nav-links {
-        margin: 0 0 11px 0;
-        padding: 0;
-
-        @media screen and (min-width: 700px){
-            margin: 0 auto;
-            padding: 0 @grid-gutter-width / 2;
-            float: right;
-        }
-
-        a {
-            line-height: 32px;
-            margin-right: @grid-gutter-width / 2;
-            font-size: 16px;
-            text-transform: lowercase;
-            -webkit-font-smoothing: antialiased;
-            opacity: 0.7;
-
-            &.active { font-weight: bold; }
-            &:last-child { margin-right: 0; }
-
-            &:hover {
-                color: #eee;
-                opacity: 0.5;
-            }
-
-            @media screen and (min-width: 700px){
-                text-align: right;
-            }
-        }
-    }*/
+    padding: 2.5rem 3.5rem 1rem;
 
     img {
         padding-right: .25rem; 
@@ -91,11 +58,11 @@ header {
     background-color: @white; 
     border: 1px solid @gray-c;
     border-radius: 2px; 
-    padding: .75rem;
+    padding: .5rem;
     &.active {
         background-color: @cherry-light-80; 
     }
-    &.btn-lg {
+    &.btn-save {
         background-color: @cherry; 
         border: none; 
         color: @white;
@@ -110,150 +77,8 @@ h2 {
     margin: 0;
 }
 
-/*
-.content {
-    display: table;
-    width: 100%;
-    max-width: 1200px;
-    min-width: 640px;
-    margin: 0 auto;
-
-    .poster-wrapper,
-    .container {
-        display: table-cell;
-        vertical-align: top;
-    }
-
-    .poster-wrapper {
-        width: 640px;
-    }
-
-    @media screen and (max-width: @screen-sm-max){
-        display: block;
-
-        .poster-wrapper,
-        .container {
-            display: block;
-        }
-    }
-
-    @media screen and (max-width: @screen-xs-max){
-        .controls-wrapper {
-            font-size: 250%;
-            .btn {
-                font-size: 100%;
-                height: 88px;
-                min-width: 88px;
-            }
-        }
-
-        #fontsize {
-            display: block;
-            width: 90%;
-        }
-    }
-
-    .touch & {
-        input[type="range"]{
-            background: #fff;
-            width: 100%;
-            height: 88px;
-            -webkit-appearance: none;
-            border-radius: 8px;
-            -moz-border-radius: 8px;
-            -wekkit-border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-
-        input[type="range"]::-webkit-slider-thumb{
-           -webkit-appearance:none !important;
-           width:88px;
-           height:88px;
-           -webkit-appearance: none;
-            border-radius: 8px;
-            -moz-border-radius: 8px;
-            -wekkit-border-radius: 8px;
-            border:none;
-            background: #aaa;
-         }
-
-         @media screen and (min-width: @screen-sm){
-            input[type="range"]{
-                height: 44px;
-            }
-
-            input[type="range"]::-webkit-slider-thumb {
-                width:44px;
-                height:44px;
-            }
-         }
-    }
-}
-*/
-/*.home #content {
-    padding-top: 33px;
-    padding-bottom: 33px;
-
-    .poster-wrapper {
-        text-align: center;
-        margin-bottom: 15px;
-
-        a:hover {
-            text-decoration: none;
-
-            img { opacity: 0.7; }
-        }
-
-        img {
-            display: block;
-            margin: 0 auto 22px auto;
-        }
-
-        h3 {
-            letter-spacing: 1px;
-            margin: 0 0 11px 0;
-            font-size: 24px;
-            font-weight: 600;
-            text-transform: uppercase;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        p {
-            color: #666;
-            font-size: 14px;
-            margin: 0;
-
-            i {
-                font-style: italic;
-                color: #999;
-                display: block;
-                font-size: 13px;
-                margin-top: 5px;
-            }
-        }
-
-    }
-}*/
 
 .content {
-    /*()
-    @media screen and (max-width: @screen-xs-max){
-        .controls-wrapper {
-            font-size: 250%;
-            .btn {
-                font-size: 100%;
-                height: 88px;
-                min-width: 88px;
-            }
-        }
-
-        #fontsize {
-            display: block;
-            width: 90%;
-        }
-    }
-    */
 
     .touch & {
         input[type="range"] {
@@ -294,7 +119,6 @@ h2 {
 }
 
 .filters {
-    padding-top: @line-height;
 
     small {
         font-size: 100%;
@@ -368,7 +192,6 @@ h2 {
 }
 
 .filters {
-    padding-top: @line-height-computed;
 
     small {
         font-size: 100%;
@@ -435,24 +258,6 @@ h2 {
         padding: @padding;
     }
 
-    /*.quote& {
-        .left-quote {
-            top: @padding;
-            left: @padding;
-        }
-    }*/
-
-    blockquote {
-        margin-bottom: 20px;
-    }
-
-    /*p.source {
-        font-size: @base-font-size * 1.3;
-    }
-
-    .show-credit {
-        font-size: @base-font-size * 1.1;
-    }*/
     // facebook
     &.facebook {
         height: 100%; 
@@ -467,8 +272,8 @@ h2 {
         height: 100%; 
         width: 100%;
         @media screen and (min-width: @screen-sm-max){
-            height: 640px; 
-            width: 640px; 
+            height: 540px; // half 
+            width: 540px; // half 
         }
     }
 
@@ -485,67 +290,16 @@ h2 {
         }
     }
 
-    &.poster-white {
-        .logo-wrapper {
-            /*background-image: @logo-path;
-            background-repeat: no-repeat;
-            background-size: @slate-logo-width @slate-logo-height;
-            width: @slate-logo-width + @padding;
-            height: @slate-logo-height + @padding;*/
-
-            /*.twitter& {
-                background-size: @logo-16x9-width @logo-16x9-height;
-                width: @logo-16x9-width + @padding;
-                height: @logo-16x9-height + @padding;
-            }*/
-        }
-    }
-
     &.poster-raisin {
         background: @theme2-bg-color;
         color: @theme2-text-color;
-        .logo-wrapper {
-            /*background: @theme2-bg-color;
-            color: @theme2-text-color;
-            background-image: @theme2-logo-path;
-            background-repeat: no-repeat;
-            background-size: @slate-logo-width @slate-logo-height;
-            width: @slate-logo-width + @padding;
-            height: @slate-logo-height + @padding;*/
-
-            /*.twitter& {
-                background-size: @theme2-16x9-logo-width @theme2-16x9-logo-height;
-                width: @theme2-16x9-logo-width + @padding;
-                height: @theme2-16x9-logo-height + @padding;
-            }*/
-        }
-        /*.show-credit {
-            color: @theme2-credit-color;
-        }*/
     }
     
     &.poster-plum {
         background: @theme3-bg-color;
         color: @theme3-text-color;
-        .logo-wrapper {
-            /*&background: @theme3-bg-color;
-            color: @theme3-text-color;
-            background-image: @theme3-logo-path;
-            background-repeat: no-repeat;
-            background-size: @theme3-sq-logo-width @theme3-sq-logo-height;
-            width: @theme3-sq-logo-width + @padding;
-            height: @theme3-sq-logo-height + @padding;*/
-
-            /*.twitter& {
-                background-size: @theme3-16x9-logo-width @theme3-16x9-logo-height;
-                width: @theme3-16x9-logo-width + @padding;
-                height: @theme3-16x9-logo-height + @padding;
-            }*/
-        }
-        /*.show-credit {
-            color: @theme3-credit-color;
-        }*/
     }
+
     &.poster-brand-color {
         &.slow-burn {
             background: @clementine;
@@ -556,29 +310,6 @@ h2 {
             color: @white;
         }
     }
-    /*
-    &.poster-theme4 {
-        background: @theme4-bg-color;
-        color: @theme4-text-color;
-        .logo-wrapper {
-            background: @theme4-bg-color;
-            color: @theme4-text-color;
-            background-image: @theme4-logo-path;
-            background-repeat: no-repeat;
-            background-size: @theme4-sq-logo-width @theme4-sq-logo-height;
-            width: @theme4-sq-logo-width + @padding;
-            height: @theme4-sq-logo-height + @padding;
-
-            .twitter& {
-                background-size: @theme4-16x9-logo-width @theme4-16x9-logo-height;
-                width: @theme4-16x9-logo-width + @padding;
-                height: @theme4-16x9-logo-height + @padding;
-            }
-        }
-        .show-credit {
-            color: @theme4-credit-color;
-        }
-    }*/
 
     blockquote {
         display: block;
@@ -586,7 +317,8 @@ h2 {
         font-size: inherit;
         font-feature-settings: "liga" 0;
         line-height: 100%;
-        margin: 0 0 @line-height * 1;
+        margin: 0;
+        position: relative;
 
         &:focus {
             border: none;
@@ -606,92 +338,32 @@ h2 {
         }
 
         // quotation styling
-        p.js_quotation-marks {
-            display: inline;
-            &:before, 
-            &:after {
-                background-repeat: no-repeat;
-                background-size: 100%;
-                content: ''; 
-                position: absolute;
-                height: (@padding / 2);
-                width: (@padding / 2);
-            }
-            &:before {
-                background-image: url('../img/quote_start.png');
-                left: -35px;
-                top: -15px;
-            }
-            &:after {
-                background-image: url('../img/quote_end.png');
-                bottom: 15px;
-                right: -35px;
-            }
+        img {
+            height: 20px;
+            width: 20px;
+            position: absolute;
         }
-        p.js_quotation-marks-white { // repeats code bc there is a JS class switch
+        &.js_quotes {
             display: inline;
-            &:before, 
-            &:after {
-                background-repeat: no-repeat;
-                background-size: 100%;
-                content: ''; 
-                position: absolute;
-                height: (@padding / 2);
-                width: (@padding / 2);
+            p {
+                display: inline; 
             }
-            &:before {
-                background-image: url('../img/quote_start_white.png');
-                left: -35px;
-                top: -15px;
-            }
-            &:after {
-                background-image: url('../img/quote_end_white.png');
-                bottom: 15px;
-                right: -35px;
-            }
-        }
-        // bracket styling 
-        p.js_brackets {
-            &:before, 
-            &:after {
-                background-repeat: no-repeat;
-                background-size: 100%;
-                content: ''; 
-                position: absolute;
-                height: 15px;
-                width: 15px;
-            }
-            &:before {
-                background-image: url('../img/bracket_start.png');
+            .img1 {
                 left: -30px;
+            }
+            .img2 {
+                right: -30px;
+                bottom: 30px;
+            }
+        }
+        &.js_brackets {
+            .img1 {
+                left: -25px;
                 top: -20px;
             }
-            &:after {
-                background-image: url('../img/bracket_end.png');
+            .img2 {
                 bottom: -20px;
-                right: -30px;
-            }
-        }
-        // bracket styling 
-        p.js_brackets-white {
-            &:before, 
-            &:after {
-                background-repeat: no-repeat;
-                background-size: 100%;
-                content: ''; 
-                position: absolute;
-                height: 15px;
-                width: 15px;
-            }
-            &:before {
-                background-image: url('../img/bracket_start_white.png');
-                left: -30px;
-                top: -20px;
-            }
-            &:after {
-                background-image: url('../img/bracket_end_white.png');
-                bottom: -20px;
-                right: -30px;
+                right: -25px;
             }
         }
 
@@ -716,6 +388,7 @@ h2 {
 
     p.source {
         font-weight: 700; 
+        margin-top: 1.25rem; 
     }
 
 }
