@@ -68,11 +68,6 @@ function saveImage() {
         return;
     }
 
-    // make sure source begins with em dash
-    /*if (!$source.text().match(/^[\u2014]/g)) {
-        $source.html('&mdash;&thinsp;' + $source.text());
-    }*/
-
     $('canvas').remove();
     //processText();
 
@@ -107,29 +102,6 @@ function saveImage() {
         $('#download').attr('href', strDataURI).attr('target', '_blank');
         $('#download').trigger('click');
     });
-
-    // original function from forking the repo
-    /*html2canvas($poster, {
-        onrendered: function(canvas) {
-
-            document.body.appendChild(canvas);
-            window.oCanvas = document.getElementsByTagName("canvas");
-            window.oCanvas = window.oCanvas[0];
-            var strDataURI = window.oCanvas.toDataURL();
-
-            var quote = $('blockquote').text().split(' ', 5); 
-            var filename = processFilename(); 
-
-            var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
-
-            a[0].click();
-
-            a.remove();
-
-            $('#download').attr('href', strDataURI).attr('target', '_blank');
-            $('#download').trigger('click');
-        }
-    });*/
 }
 
 function adjustFontSize(size) {
@@ -178,14 +150,6 @@ $(function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
         $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
-
-        /*if ($poster.hasClass('twitter')) {
-            adjustFontSize(32);
-            $fontSize.val(32);
-        } else {
-            adjustFontSize(90);
-            $fontSize.val(90);
-        }*/
     });
 
     // change brand logo
@@ -291,7 +255,7 @@ $(function() {
 
             $('blockquote').removeClass();
             $('blockquote').addClass('js_quotes');
-            
+
             $('blockquote img').show();
             $('blockquote .img1').attr('src', 'img/quote_start.png'); 
             $('blockquote .img2').attr('src', 'img/quote_end.png');
