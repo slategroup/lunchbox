@@ -318,6 +318,7 @@ h2 {
         font-feature-settings: "liga" 0;
         line-height: 100%;
         margin: 0 0 @line-height * 1;
+        position: relative;
 
         &:focus {
             border: none;
@@ -337,12 +338,36 @@ h2 {
         }
 
         img {
-            height: 30px;
-            width: 30px;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+        }
+        &.js_quotes {
+            display: inline;
+            p {
+                display: inline; 
+            }
+            .img1 {
+                left: -30px;
+            }
+            .img2 {
+                right: -30px;
+                bottom: 30px;
+            }
+        }
+        &.js_brackets {
+            .img1 {
+                left: -25px;
+                top: -20px;
+            }
+            .img2 {
+                bottom: -20px;
+                right: -25px;
+            }
         }
 
         // quotation styling
-        p.js_quotation-marks {
+        /*p.js_quotation-marks {
             display: inline;
             &:before, 
             &:after {
@@ -424,7 +449,7 @@ h2 {
                 bottom: -20px;
                 right: -30px;
             }
-        }
+        }*/
 
         .show-credit {
             line-height: 1.2 !important;
