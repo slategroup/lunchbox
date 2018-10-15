@@ -15,7 +15,7 @@ var quotes = [
     {
         "quote": "The quick brown fox jumps over the lazy dog.",
         "source": "Some Person", 
-        "size": 30
+        "size": 40
     }
 ];
 
@@ -38,12 +38,21 @@ function convertToSlug(text) {
         .replace(/ +/g,'-');
 }
 
-function processText() {
-    $text = $('.poster blockquote p, .source, .podcast-name');
+/*function processText() {
+    $text = $('.social-graphic-quote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
+
         $(this).html(smarten(rawText)).find('br').remove();
     });
+}*/
+
+function processFilename() {
+    $text = $('.social-graphic-quote blockquote p');
+    var rawText = $.trim(($text).html().replace('.', ''));
+    var filename = rawText.replace(/ +/g, '-').toLowerCase();
+
+    return filename; 
 }
 
 function saveImage() {
@@ -59,23 +68,30 @@ function saveImage() {
         return;
     }
 
-    // make sure source begins with em dash
-    /*if (!$source.text().match(/^[\u2014]/g)) {
-        $source.html('&mdash;&thinsp;' + $source.text());
-    }*/
-
     $('canvas').remove();
-    processText();
+    //processText();
 
-    html2canvas($poster, {
-      onrendered: function(canvas) {
+    // makes downloaded image 2x
+    var w = $('.social-graphic-quote').css('width').replace('px', '');
+    var h = $('.social-graphic-quote').css('height').replace('px', '');
+    var quoteDownload = document.querySelector('.social-graphic-quote');
+    var testcanvas = document.createElement('canvas');
+    testcanvas.width = w*2;
+    testcanvas.height = h*2;
+    testcanvas.style.width = w + 'px';
+    testcanvas.style.height = h + 'px';
+    var context = testcanvas.getContext('2d');
+    context.scale(2,2);
+
+    // new function trying to increase the size of the downloaded image
+    html2canvas(quoteDownload, { canvas: testcanvas }).then(function(canvas) {
         document.body.appendChild(canvas);
+
         window.oCanvas = document.getElementsByTagName("canvas");
         window.oCanvas = window.oCanvas[0];
         var strDataURI = window.oCanvas.toDataURL();
 
-        var quote = $('blockquote').text().split(' ', 5);
-        var filename = convertToSlug(quote.join(' '));
+        var filename = processFilename(); 
 
         var a = $("<a>").attr("href", strDataURI).attr("download", "quote-" + filename + ".png").appendTo("body");
 
@@ -85,7 +101,6 @@ function saveImage() {
 
         $('#download').attr('href', strDataURI).attr('target', '_blank');
         $('#download').trigger('click');
-      }
     });
 }
 
@@ -98,7 +113,7 @@ function adjustFontSize(size) {
 }
 
 $(function() {
-    $text = $('.social-graphic-quote blockquote p, .source, .podcast-name');
+    $text = $('.social-graphic-quote blockquote p');
     $save = $('#save');
     $poster = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
@@ -123,7 +138,10 @@ $(function() {
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
     $podcastName.html(quote.podcastName);
-    processText();
+    //processText();
+
+    // nan's custom function that is very similar to others
+    processFilename(); 
 
     $save.on('click', saveImage);
 
@@ -132,14 +150,6 @@ $(function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
         $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
-
-        if ($poster.hasClass('twitter')) {
-            adjustFontSize(32);
-            $fontSize.val(32);
-        } else {
-            adjustFontSize(90);
-            $fontSize.val(90);
-        }
     });
 
     // change brand logo
@@ -210,28 +220,45 @@ $(function() {
             ($colorSelectedID === 'brand-color')) {
 
             if ($styleSelectedID === 'quotes') {
-                $('blockquote p').removeClass();
-                $('blockquote p').addClass('js_quotation-marks-white');
+                $('blockquote').removeClass();
+                $('blockquote').addClass('js_quotes');
+
+                $('blockquote img').show();
+                $('blockquote .img1').attr('src', 'img/quote_start_white.png'); 
+                $('blockquote .img2').attr('src', 'img/quote_end_white.png');
             } else if ($styleSelectedID === 'brackets') {
-                $('blockquote p').removeClass();
-                $('blockquote p').addClass('js_brackets-white');
+                $('blockquote').removeClass();
+                $('blockquote').addClass('js_brackets');
+
+                $('blockquote img').show();
+                $('blockquote .img1').attr('src', 'img/bracket_start_white.png'); 
+                $('blockquote .img2').attr('src', 'img/bracket_end_white.png');
             } else {
-                $('blockquote p').removeClass();
+                $('blockquote img').hide();
             }
 
         } else if ($styleSelectedID === 'brackets') {
 
-            $('blockquote p').removeClass();
-            $('blockquote p').addClass('js_brackets');
+            $('blockquote').removeClass();
+            $('blockquote').addClass('js_brackets'); 
+
+            $('blockquote img').show();
+            $('blockquote .img1').attr('src', 'img/bracket_start.png'); 
+            $('blockquote .img2').attr('src', 'img/bracket_end.png');
 
         } else if ($styleSelectedID === 'none') {
 
-            $('blockquote p').removeClass();
+            $('blockquote').removeClass();
+            $('blockquote img').hide();
 
         } else {
 
-            $('blockquote p').removeClass();
-            $('blockquote p').addClass('js_quotation-marks');
+            $('blockquote').removeClass();
+            $('blockquote').addClass('js_quotes');
+
+            $('blockquote img').show();
+            $('blockquote .img1').attr('src', 'img/quote_start.png'); 
+            $('blockquote .img2').attr('src', 'img/quote_end.png');
 
         }
 

@@ -35,12 +35,14 @@ def index():
     context['now'] = datetime.now().strftime('%B %-d, %Y')
     return make_response(render_template('index.html', **context))
 
+"""
 @app.route('/factlist/index.html')
 def factlist():
     context = make_context()
     context['name'] = 'Factlist'
     context['id'] = context['name']
     return make_response(render_template('factlist.html', **context))
+
 
 @app.route('/quotable/index.html')
 def quotable():
@@ -49,12 +51,14 @@ def quotable():
     context['id'] = context['name']
     return make_response(render_template('quotable.html', **context))
 
+
 @app.route('/waterbug/index.html')
 def waterbug():
     context = make_context()
     context['name'] = 'Waterbug'
     context['id'] = context['name']
     return make_response(render_template('waterbug.html', **context))
+"""
 
 app.register_blueprint(static.static)
 
