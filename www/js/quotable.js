@@ -135,15 +135,17 @@ $(function() {
     $save.on('click', saveImage);
 
     // change graphic crop
-    $aspectRatioButtons.on('click', function() {
+    /*$aspectRatioButtons.on('click', function() {
         $aspectRatioButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
         $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
-    });
+    });*/
 
     // make certain elements white if background calls for it
     $('.filters select').on('change', function() {
         // is there a way to not rewrite these...???
+        var $sizeSelected = $('.filter_change-size option:selected'); 
+        var $sizeSelectedID = $sizeSelected.attr('id');
         var $brandSelected = $('.filter_change-brand option:selected'); 
         var $brandSelectedID = $brandSelected.attr('id');
         var $brandSelectedValue = $brandSelected.attr('value');
@@ -173,9 +175,10 @@ $(function() {
             $podcastName.html(''); 
         }
 
-        // change background color + brand class
-        $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
-                .addClass('social-graphic-quote poster-' + $colorSelectedID + ' ' + $brandSelectedID);
+        // change classes on canvas
+        $poster.removeClass()
+                .addClass('social-graphic-quote poster-' + $colorSelectedID 
+                    + ' ' + $brandSelectedID + ' ' + $sizeSelectedID);
 
         // changes slate logo
         if (($brandSelected.hasClass('slate-brand')) && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
