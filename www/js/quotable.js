@@ -163,7 +163,7 @@ $(function() {
         }
 
         // adds podcast name if podcast brand is selected
-        if ($brandSelectedID != 'slate') {
+        if (!$brandSelected.hasClass('slate-brand')) {
             $podcastName.html($brandSelectedValue); 
         } else {
             $podcastName.html(''); 
@@ -194,8 +194,8 @@ $(function() {
         var $styleSelectedID = $styleSelected.attr('id');
 
         // changes slate logo
-        if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
-            $brandLogo.attr('src','img/brand/' + $brandSelectedID + '_white.png' );
+        if (($brandSelected.hasClass('slate-brand')) && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
+            $brandLogo.attr('src','img/brand/' + $brandSelectedID + '-white.png' );
         } else {
             $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
         }
