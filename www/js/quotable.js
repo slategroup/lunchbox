@@ -56,17 +56,6 @@ function processFilename() {
 }
 
 function saveImage() {
-    // first check if the quote actually fits
-    if (($source.offset().top + $source.height()) > $logoWrapper.offset().top) {
-        alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
-        return;
-    }
-
-    // don't print placeholder text if source is empty
-    if ($source.text() === '') {
-        alert("A source is required.");
-        return;
-    }
 
     $('canvas').remove();
     //processText();
