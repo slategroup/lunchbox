@@ -250,12 +250,14 @@ h2 {
     color: @text-color;
 
     // twitter (default)
-    height: 100%; 
-    width: 100%;
-    @media screen and (min-width: @screen-sm-max){
-        height: 384px; // half x 1.5
-        width: 768px; // half x 1.5
-        padding: @padding;
+    &.twitter {
+        height: 100%; 
+        width: 100%;
+        @media screen and (min-width: @screen-sm-max){
+            height: 384px; // half x 1.5
+            width: 768px; // half x 1.5
+            padding: @padding 60px;
+        }
     }
 
     // facebook
@@ -282,7 +284,7 @@ h2 {
         z-index: 100;
         bottom: 0;
         right: 0px;
-        padding: 30px;
+        padding: @padding;
 
         img {
             display: block;
