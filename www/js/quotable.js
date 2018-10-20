@@ -286,7 +286,7 @@ $(function() {
 
     var sourceEditor = new MediumEditor(sourceEl, {
         disableToolbar: true,
-        placeholder: 'Type your quote source here'
+        placeholder: '  '
     });
 
     var podcastNameEditor = new MediumEditor(podcastNameEl, {
