@@ -141,12 +141,16 @@ $(function() {
         $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
     });
 
-    // change brand logo
-    $brandSelect.on('change', function() { 
-
+    // make certain elements white if background calls for it
+    $('.filters select').on('change', function() {
+        // is there a way to not rewrite these...???
         var $brandSelected = $('.filter_change-brand option:selected'); 
         var $brandSelectedID = $brandSelected.attr('id');
         var $brandSelectedValue = $brandSelected.attr('value');
+        var $colorSelected = $('.filter_change-color option:selected');
+        var $colorSelectedID = $colorSelected.attr('id');
+        var $styleSelected = $('.filter_change-style option:selected');
+        var $styleSelectedID = $styleSelected.attr('id');
 
         // image file matches ID on select option
         $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
@@ -169,29 +173,12 @@ $(function() {
             $podcastName.html(''); 
         }
 
+        // change background color + class
+        // change brand class
         $poster.removeClass('slow-burn trumpcast')
-                    .addClass($brandSelected.attr('id'));
-    });
-
-    // change background color
-    $colorSelect.on('change', function() {
-
-        var $colorSelected = $('.filter_change-color option:selected'); 
-
+                    .addClass($brandSelectedID);
         $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
-                    .addClass('poster-' + $colorSelected.attr('id'));
-
-    });
-
-    // make certain elements white if background calls for it
-    $('.filters select').on('change', function() {
-        // is there a way to not rewrite these...???
-        var $brandSelected = $('.filter_change-brand option:selected'); 
-        var $brandSelectedID = $brandSelected.attr('id');
-        var $colorSelected = $('.filter_change-color option:selected');
-        var $colorSelectedID = $colorSelected.attr('id');
-        var $styleSelected = $('.filter_change-style option:selected');
-        var $styleSelectedID = $styleSelected.attr('id');
+                    .addClass('poster-' + $colorSelectedID);
 
         // changes slate logo
         if (($brandSelected.hasClass('slate-brand')) && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
@@ -275,7 +262,7 @@ $(function() {
     // });
 
 
-    var quoteEl = document.querySelectorAll('.poster blockquote');
+    var quoteEl = document.querySelectorAll('.social-graphic-quote blockquote');
     var sourceEl = document.querySelectorAll('.source');
     var podcastNameEl = document.querySelectorAll('.podcast-name');
 
