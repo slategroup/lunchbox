@@ -159,7 +159,7 @@ $(function() {
         } else {
             console.log('not slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
-            $('.filter_change-color #raisin, .filter_change-color #plum').attr('disabled','disabled');
+            $('.filter_change-color #plum').attr('disabled','disabled');
         }
 
         // adds podcast name if podcast brand is selected
