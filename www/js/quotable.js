@@ -173,12 +173,9 @@ $(function() {
             $podcastName.html(''); 
         }
 
-        // change background color + class
-        // change brand class
-        $poster.removeClass('slow-burn trumpcast')
-                    .addClass($brandSelectedID);
+        // change background color + brand class
         $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
-                    .addClass('poster-' + $colorSelectedID);
+                .addClass('social-graphic-quote poster-' + $colorSelectedID + ' ' + $brandSelectedID);
 
         // changes slate logo
         if (($brandSelected.hasClass('slate-brand')) && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
