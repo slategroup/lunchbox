@@ -1,6 +1,6 @@
 var $text = null;
 var $save = null;
-var $poster = null;
+var $socialGraphicQuote = null;
 var $themeButtons = null;
 var $aspectRatioButtons = null;
 var $quote = null;
@@ -95,7 +95,7 @@ function saveImage() {
 
 function adjustFontSize(size) {
     var fontSize = size.toString() + 'px';
-    $poster.css('font-size', fontSize);
+    $socialGraphicQuote.css('font-size', fontSize);
     if ($fontSize.val() !== size){
         $fontSize.val(size);
     };
@@ -104,7 +104,7 @@ function adjustFontSize(size) {
 $(function() {
     $text = $('.social-graphic-quote blockquote p');
     $save = $('#save');
-    $poster = $('.social-graphic-quote');
+    $socialGraphicQuote = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
     $aspectRatioButtons = $('#aspect-ratio .btn');
     $fontSize = $('#fontsize');
@@ -134,14 +134,7 @@ $(function() {
 
     $save.on('click', saveImage);
 
-    // change graphic crop
-    /*$aspectRatioButtons.on('click', function() {
-        $aspectRatioButtons.removeClass().addClass('btn btn-primary');
-        $(this).addClass('active');
-        $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
-    });*/
-
-    // make certain elements white if background calls for it
+    // massive select on change function
     $('.filters select').on('change', function() {
         // is there a way to not rewrite these...???
         var $sizeSelected = $('.filter_change-size option:selected'); 
@@ -176,8 +169,8 @@ $(function() {
         }
 
         // change classes on canvas
-        $poster.removeClass()
-                .addClass('social-graphic-quote poster-' + $colorSelectedID 
+        $socialGraphicQuote.removeClass()
+                .addClass('social-graphic-quote ' + $colorSelectedID 
                     + ' ' + $brandSelectedID + ' ' + $sizeSelectedID);
 
         // changes slate logo
@@ -246,7 +239,7 @@ $(function() {
 
     $quote.on('click', function() {
         $(this).find('button').toggleClass('active');
-        $poster.toggleClass('quote');
+        $socialGraphicQuote.toggleClass('quote');
     });
 
     /*$show.on('keyup', function() {
