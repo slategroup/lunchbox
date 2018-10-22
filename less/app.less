@@ -54,22 +54,14 @@ header {
 }
 
 // global button styles 
-.btn {
-    background-color: @white; 
-    border: 1px solid @gray-c;
+button {
+    background-color: @cherry;
+    border: none; 
     border-radius: 2px; 
-    padding: .5rem;
-    &.active {
-        background-color: @cherry-light-80; 
-    }
-    &.btn-save {
-        background-color: @cherry; 
-        border: none; 
-        color: @white;
-        font-weight: 700; 
-        letter-spacing: .5px; 
-        padding: 1rem; 
-    }
+    color: @white;
+    font-weight: 700; 
+    letter-spacing: .5px; 
+    padding: 1rem; 
 }
 
 h2 {
@@ -125,43 +117,9 @@ h2 {
         opacity: 0.5;
     }
 
-    .btn-group { -webkit-font-smoothing: antialiased; }
-
-    .btn-group,
-    .btn-group + .btn {
-        margin-right: @padding / 2;
-    }
-
-    .btn-group-vertical .btn {
-        text-align: left;
-    }
-
     .form-group,
     .btn-group {
         margin-bottom: 1.25rem;
-    }
-
-    .btn-group,
-    .btn-group-vertical,
-    .input-group .btn {
-        -webkit-font-smoothing: antialiased;
-    }
-
-    .input-group .btn:focus {
-        outline: none;
-    }
-
-    .btn-group-sm > .btn {
-        font-size: 13px;
-        padding: 5px;
-    }
-
-    .btn:active,
-    .btn.active {
-        outline: 0;
-        background-image: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
     }
     
     input[type="range"] {
@@ -196,15 +154,6 @@ h2 {
     small {
         font-size: 100%;
         opacity: 0.5;
-    }
-
-    .btn-group,
-    .btn-group + .btn {
-        margin-right: @grid-gutter-width / 2;
-    }
-
-    .btn-group-vertical .btn {
-        text-align: left;
     }
 
     label {
@@ -312,8 +261,10 @@ h2 {
     }
 
     &.brand-color {
-        &.slow-burn {
-            background: @clementine;
+        &.dear-prudence, 
+        &.lend-me-your-ears,
+        &.the-waves {
+            background: @cherry;
             color: @white;
         }
         &.trumpcast {
