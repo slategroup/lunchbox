@@ -99,6 +99,14 @@ function adjustFontSize(size) {
     if ($fontSize.val() !== size){
         $fontSize.val(size);
     };
+
+    // change size of handdrawn quotes
+    var quoteImgSize = ((size.toString())/2) + 'px'; 
+    var quoteImgPosition = ((size.toString())/(4/3)) + 'px'; 
+    console.log(quoteImgPosition); 
+    $('.js_quotes .img1, .js_quotes .img2').css('height', quoteImgSize).css('width', quoteImgSize);  
+    $('.js_quotes .img1').css('left', '-' + quoteImgPosition);
+    $('.js_quotes .img2').css('right', '-' + quoteImgPosition).css('bottom', quoteImgPosition);    
 }
 
 $(function() {
