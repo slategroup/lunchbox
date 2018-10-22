@@ -103,10 +103,15 @@ function adjustFontSize(size) {
     // change size of handdrawn quotes
     var quoteImgSize = ((size.toString())/2) + 'px'; 
     var quoteImgPosition = ((size.toString())/(4/3)) + 'px'; 
-    console.log(quoteImgPosition); 
-    $('.js_quotes .img1, .js_quotes .img2').css('height', quoteImgSize).css('width', quoteImgSize);  
-    $('.js_quotes .img1').css('left', '-' + quoteImgPosition);
-    $('.js_quotes .img2').css('right', '-' + quoteImgPosition).css('bottom', quoteImgPosition);    
+    if ($('.social-graphic-quote blockquote').hasClass('js_quotes')) {
+        $('.img1, .js_quotes .img2').css('height', quoteImgSize).css('width', quoteImgSize);  
+        $('.img1').css('left', '-' + quoteImgPosition);
+        $('.img2').css('bottom', quoteImgPosition);  
+    } 
+    else if ($('.social-graphic-quote blockquote').hasClass('js_brackets')) {
+        // remove inline styling
+        $('.img1, .img2').attr('style', '')
+    } 
 }
 
 $(function() {
@@ -131,6 +136,9 @@ $(function() {
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
         adjustFontSize(quote.size);
+        $('.filters select').on('change', function() {
+            adjustFontSize(quote.size);
+        }); 
     }
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
@@ -143,7 +151,7 @@ $(function() {
     $save.on('click', saveImage);
 
     // massive select on change function
-    $('.filters select').on('change', function() {
+    $('.filters select, .filters input').on('change', function() {
         // is there a way to not rewrite these...???
         var $sizeSelected = $('.filter_change-size option:selected'); 
         var $sizeSelectedID = $sizeSelected.attr('id');
@@ -160,11 +168,9 @@ $(function() {
 
         // disabled bg color options based on brand selection
         if ($brandSelectedID === 'slate') {
-            console.log('slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
             $('.filter_change-color #brand-color').attr('disabled','disabled'); 
         } else {
-            console.log('not slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
             $('.filter_change-color #plum').attr('disabled','disabled');
         }
@@ -188,7 +194,6 @@ $(function() {
             $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
         }
 
-        console.log($styleSelectedID); 
         // changes quote style and color
         // this is not the most elegant solution i am aware
         // 'brand-color' might need to be removed depending on the brand colors
@@ -239,11 +244,12 @@ $(function() {
 
         }
 
+        adjustFontSize($(this).val());
     }); 
 
-    $fontSize.on('change', function() {
+    /*$fontSize.on('change', function() {
         adjustFontSize($(this).val());
-    });
+    });*/
 
     $quote.on('click', function() {
         $(this).find('button').toggleClass('active');
