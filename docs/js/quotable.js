@@ -1,6 +1,6 @@
 var $text = null;
 var $save = null;
-var $poster = null;
+var $socialGraphicQuote = null;
 var $themeButtons = null;
 var $aspectRatioButtons = null;
 var $quote = null;
@@ -56,17 +56,6 @@ function processFilename() {
 }
 
 function saveImage() {
-    // first check if the quote actually fits
-    if (($source.offset().top + $source.height()) > $logoWrapper.offset().top) {
-        alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
-        return;
-    }
-
-    // don't print placeholder text if source is empty
-    if ($source.text() === '') {
-        alert("A source is required.");
-        return;
-    }
 
     $('canvas').remove();
     //processText();
@@ -106,16 +95,29 @@ function saveImage() {
 
 function adjustFontSize(size) {
     var fontSize = size.toString() + 'px';
-    $poster.css('font-size', fontSize);
+    $socialGraphicQuote.css('font-size', fontSize);
     if ($fontSize.val() !== size){
         $fontSize.val(size);
     };
+
+    // change size of handdrawn quotes
+    var quoteImgSize = ((size.toString())/2) + 'px'; 
+    var quoteImgPosition = ((size.toString())/(4/3)) + 'px'; 
+    if ($('.social-graphic-quote blockquote').hasClass('js_quotes')) {
+        $('.img1, .js_quotes .img2').css('height', quoteImgSize).css('width', quoteImgSize);  
+        $('.img1').css('left', '-' + quoteImgPosition);
+        $('.img2').css('bottom', quoteImgPosition);  
+    } 
+    else if ($('.social-graphic-quote blockquote').hasClass('js_brackets')) {
+        // remove inline styling
+        $('.img1, .img2').attr('style', '')
+    } 
 }
 
 $(function() {
     $text = $('.social-graphic-quote blockquote p');
     $save = $('#save');
-    $poster = $('.social-graphic-quote');
+    $socialGraphicQuote = $('.social-graphic-quote');
     $themeButtons = $('#theme .btn');
     $aspectRatioButtons = $('#aspect-ratio .btn');
     $fontSize = $('#fontsize');
@@ -134,6 +136,9 @@ $(function() {
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
         adjustFontSize(quote.size);
+        $('.filters select').on('change', function() {
+            adjustFontSize(quote.size);
+        }); 
     }
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
@@ -145,73 +150,50 @@ $(function() {
 
     $save.on('click', saveImage);
 
-    // change graphic crop
-    $aspectRatioButtons.on('click', function() {
-        $aspectRatioButtons.removeClass().addClass('btn btn-primary');
-        $(this).addClass('active');
-        $poster.removeClass('facebook twitter square').addClass($(this).attr('id'));
-    });
-
-    // change brand logo
-    $brandSelect.on('change', function() { 
-
+    // massive select on change function
+    $('.filters select, .filters input').on('change', function() {
+        // is there a way to not rewrite these...???
+        var $sizeSelected = $('.filter_change-size option:selected'); 
+        var $sizeSelectedID = $sizeSelected.attr('id');
         var $brandSelected = $('.filter_change-brand option:selected'); 
         var $brandSelectedID = $brandSelected.attr('id');
         var $brandSelectedValue = $brandSelected.attr('value');
+        var $colorSelected = $('.filter_change-color option:selected');
+        var $colorSelectedID = $colorSelected.attr('id');
+        var $styleSelected = $('.filter_change-style option:selected');
+        var $styleSelectedID = $styleSelected.attr('id');
 
         // image file matches ID on select option
         $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
 
         // disabled bg color options based on brand selection
         if ($brandSelectedID === 'slate') {
-            console.log('slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
             $('.filter_change-color #brand-color').attr('disabled','disabled'); 
         } else {
-            console.log('not slate'); 
             $('.filter_change-color option').removeAttr('disabled'); 
-            $('.filter_change-color #raisin, .filter_change-color #plum').attr('disabled','disabled');
+            $('.filter_change-color #plum').attr('disabled','disabled');
         }
 
         // adds podcast name if podcast brand is selected
-        if ($brandSelectedID != 'slate') {
+        if (!$brandSelected.hasClass('slate-brand')) {
             $podcastName.html($brandSelectedValue); 
         } else {
             $podcastName.html(''); 
         }
 
-        $poster.removeClass('slow-burn trumpcast')
-                    .addClass($brandSelected.attr('id'));
-    });
-
-    // change background color
-    $colorSelect.on('change', function() {
-
-        var $colorSelected = $('.filter_change-color option:selected'); 
-
-        $poster.removeClass('poster-white poster-raisin poster-plum poster-brand-color')
-                    .addClass('poster-' + $colorSelected.attr('id'));
-
-    });
-
-    // make certain elements white if background calls for it
-    $('.filters select').on('change', function() {
-        // is there a way to not rewrite these...???
-        var $brandSelected = $('.filter_change-brand option:selected'); 
-        var $brandSelectedID = $brandSelected.attr('id');
-        var $colorSelected = $('.filter_change-color option:selected');
-        var $colorSelectedID = $colorSelected.attr('id');
-        var $styleSelected = $('.filter_change-style option:selected');
-        var $styleSelectedID = $styleSelected.attr('id');
+        // change classes on canvas
+        $socialGraphicQuote.removeClass()
+                .addClass('social-graphic-quote ' + $colorSelectedID 
+                    + ' ' + $brandSelectedID + ' ' + $sizeSelectedID);
 
         // changes slate logo
-        if (($brandSelectedID === 'slate') && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
-            $brandLogo.attr('src','img/brand/' + $brandSelectedID + '_white.png' );
+        if (($brandSelected.hasClass('slate-brand')) && (($colorSelectedID === 'raisin') || ($colorSelectedID === 'plum'))) {
+            $brandLogo.attr('src','img/brand/' + $brandSelectedID + '-white.png' );
         } else {
             $brandLogo.attr('src','img/brand/' + $brandSelectedID + '.png' );
         }
 
-        console.log($styleSelectedID); 
         // changes quote style and color
         // this is not the most elegant solution i am aware
         // 'brand-color' might need to be removed depending on the brand colors
@@ -262,15 +244,16 @@ $(function() {
 
         }
 
+        adjustFontSize($(this).val());
     }); 
 
-    $fontSize.on('change', function() {
+    /*$fontSize.on('change', function() {
         adjustFontSize($(this).val());
-    });
+    });*/
 
     $quote.on('click', function() {
         $(this).find('button').toggleClass('active');
-        $poster.toggleClass('quote');
+        $socialGraphicQuote.toggleClass('quote');
     });
 
     /*$show.on('keyup', function() {
@@ -286,7 +269,7 @@ $(function() {
     // });
 
 
-    var quoteEl = document.querySelectorAll('.poster blockquote');
+    var quoteEl = document.querySelectorAll('.social-graphic-quote blockquote');
     var sourceEl = document.querySelectorAll('.source');
     var podcastNameEl = document.querySelectorAll('.podcast-name');
 
@@ -297,7 +280,7 @@ $(function() {
 
     var sourceEditor = new MediumEditor(sourceEl, {
         disableToolbar: true,
-        placeholder: 'Type your quote source here'
+        placeholder: '  '
     });
 
     var podcastNameEditor = new MediumEditor(podcastNameEl, {
