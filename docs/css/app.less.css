@@ -1719,18 +1719,10 @@ header h1 span.help {
   opacity: 0.7;
   text-transform: none;
 }
-.btn {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  padding: .5rem;
-}
-.btn.active {
-  background-color: #ffcfdc;
-}
-.btn.btn-save {
+button {
   background-color: #ff0e50;
   border: none;
+  border-radius: 2px;
   color: #ffffff;
   font-weight: 700;
   letter-spacing: .5px;
@@ -1774,38 +1766,9 @@ h2 {
   font-size: 100%;
   opacity: 0.5;
 }
-.filters .btn-group {
-  -webkit-font-smoothing: antialiased;
-}
-.filters .btn-group,
-.filters .btn-group + .btn {
-  margin-right: 25px;
-}
-.filters .btn-group-vertical .btn {
-  text-align: left;
-}
 .filters .form-group,
 .filters .btn-group {
   margin-bottom: 1.25rem;
-}
-.filters .btn-group,
-.filters .btn-group-vertical,
-.filters .input-group .btn {
-  -webkit-font-smoothing: antialiased;
-}
-.filters .input-group .btn:focus {
-  outline: none;
-}
-.filters .btn-group-sm > .btn {
-  font-size: 13px;
-  padding: 5px;
-}
-.filters .btn:active,
-.filters .btn.active {
-  outline: 0;
-  background-image: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 .filters input[type="range"] {
   width: 50%;
@@ -1834,13 +1797,6 @@ h2 {
   font-size: 100%;
   opacity: 0.5;
 }
-.filters .btn-group,
-.filters .btn-group + .btn {
-  margin-right: 15px;
-}
-.filters .btn-group-vertical .btn {
-  text-align: left;
-}
 .filters label {
   display: block;
   font-weight: normal;
@@ -1862,7 +1818,7 @@ h2 {
 .content .container {
   width: 100%;
 }
-.content .poster-wrapper {
+.content .wrapper {
   width: 100%;
 }
 .social-graphic-quote {
@@ -1875,14 +1831,16 @@ h2 {
   font-size: 85px;
   overflow: hidden;
   color: #000000;
+}
+.social-graphic-quote.twitter {
   height: 100%;
   width: 100%;
 }
 @media screen and (min-width: 991px) {
-  .social-graphic-quote {
+  .social-graphic-quote.twitter {
     height: 384px;
     width: 768px;
-    padding: 50px;
+    padding: 50px 60px;
   }
 }
 .social-graphic-quote.facebook {
@@ -1910,25 +1868,42 @@ h2 {
   z-index: 100;
   bottom: 0;
   right: 0px;
-  padding: 30px;
+  padding: 50px;
 }
 .social-graphic-quote .logo-wrapper img {
   display: block;
-  width: 125px;
+  width: 100px;
 }
-.social-graphic-quote.poster-raisin {
+.social-graphic-quote.slate-podcasts .logo-wrapper img,
+.social-graphic-quote.slate-studios .logo-wrapper img {
+  width: 200px;
+}
+.social-graphic-quote.raisin {
   background: #2c0022;
   color: #ffffff;
 }
-.social-graphic-quote.poster-plum {
+.social-graphic-quote.plum {
   background: #6a0432;
   color: #ffffff;
 }
-.social-graphic-quote.poster-brand-color.slow-burn {
-  background: #ffad10;
+.social-graphic-quote.brand-color.dear-prudence,
+.social-graphic-quote.brand-color.lend-me-your-ears,
+.social-graphic-quote.brand-color.outward,
+.social-graphic-quote.brand-color.the-waves {
+  background: #ff0e50;
   color: #ffffff;
 }
-.social-graphic-quote.poster-brand-color.trumpcast {
+.social-graphic-quote.brand-color.decoder-ring,
+.social-graphic-quote.brand-color.if-then {
+  background: #21aaeb;
+  color: #ffffff;
+}
+.social-graphic-quote.brand-color.political-gabfest {
+  background: #1565c0;
+  color: #ffffff;
+}
+.social-graphic-quote.brand-color.mom-and-dad-are-fighting,
+.social-graphic-quote.brand-color.trumpcast {
   background: #ff4900;
   color: #ffffff;
 }
@@ -1970,7 +1945,6 @@ h2 {
   left: -30px;
 }
 .social-graphic-quote blockquote.js_quotes .img2 {
-  right: -30px;
   bottom: 30px;
 }
 .social-graphic-quote blockquote.js_brackets .img1 {

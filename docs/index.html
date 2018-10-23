@@ -5,7 +5,7 @@
     <title>Slate Quotable</title>
 
     <!-- META TAGS -->
-    <meta name="description" content="tktktk">
+    <meta name="description" content="Slate's internal tool for creating social quote images">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -14,7 +14,7 @@
     <!-- FONTS -->
     <!-- Fonts -->
 
-<script type="text/javascript" src="js/webfont.min.js?1539613674"></script>
+<script type="text/javascript" src="js/webfont.min.js?1540307848"></script>
 <script>
 	// Define your web fonts here.
 	// See https://github.com/typekit/webfontloader for documentation
@@ -22,7 +22,7 @@
 
     <!-- CSS -->
     
-    <link rel="stylesheet" type="text/css" href="css/app.min.css?1539613675" />
+    <link rel="stylesheet" type="text/css" href="css/app.min.css?1540307849" />
     
 
     
@@ -55,23 +55,26 @@
             <div class="form controls col-md-12">
                 <div class="filters">
                     <div class="form-group">
-                        <label for="aspect-ratio">Select size:</label>
-                        <div id="aspect-ratio" class="btn-group">
-                            <button id="twitter" class="btn active">Twitter</button>
-                            <button id="facebook" class="btn">Facebook</button>
-                            <button id="square" class="btn">Square</button>
-                        </div>
+                        <label for="filter_change-size">Select size:</label>
+                        <select class="filter_change-size">
+                            <option id="twitter" selected>Twitter</option>
+                            <option id="facebook">Facebook</option>
+                            <option id="square">Square</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="filter_change-brand">Choose Brand:</label>
                         <select class="filter_change-brand">
-                            <option id="slate" value="Slate" selected>Slate</option>
+                            <option id="slate" class="slate-brand" value="Slate" selected>Slate</option>
+                            <option id="slate-podcasts" class="slate-brand" value="Slate Podcasts">Slate Podcasts</option>
+                            <option id="slate-studios" class="slate-brand" value="Slate Studios">Slate Studios</option>
                             <option id="amicus" value="Amicus">Amicus</option>
                             <option id="better-life-lab" value="Better Life Lab">Better Life Lab</option>
                             <option id="culture-gabfest" value="Culture Gabfest">Culture Gabfest</option>
                             <option id="dear-prudence" value="Dear Prudence">Dear Prudence</option>
                             <option id="decoder-ring" value="Decoder Ring">Decoder Ring</option>
                             <option id="el-gabfest" value="El Gabfest en Español">El Gabfest en Español</option>
+                            <option id="employee-of-the-month" value="Employee of the Month">Employee of the Month</option>
                             <option id="good-fight" value="The Good Fight">The Good Fight</option>
                             <option id="hang-up-and-listen" value="Hang Up and Listen">Hang Up and Listen</option>
                             <option id="hit-parade" value="Hit Parade">Hit Parade</option>
@@ -93,6 +96,7 @@
                             <option id="the-waves" value="The Waves">The Waves</option>
                             <option id="trumpcast" value="Trumpcast">Trumpcast</option>
                             <option id="upon-further-review" value="Upon Further Review">Upon Further Review</option>
+                            <option id="what-next" value="What Next">What Next</option>
                             <option id="whistlestop" value="Whistlestop">Whistlestop</option>
                             <option id="women-in-charge" value="Women in Charge">Women in Charge</option>
                             <option id="working" value="Working">Working</option>
@@ -124,14 +128,14 @@
                         <input id="show" class="form-control" name="fontsize" type="text">
                     </div>--> 
                     <div class="form-group">
-                        <button id="save" class="btn btn-save">Save image</button>
+                        <button id="save">Save image</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="poster-wrapper">
-        <div class="social-graphic-quote poster">
+    <div class="wrapper">
+        <div class="social-graphic-quote twitter">
             <!-- quote --> 
             <blockquote class="js_quotes">
                 <img class="img1" src="img/quote_start.png"/>
@@ -167,7 +171,7 @@
     
     
     
-    <!--<script type="text/javascript" src="js/app-footer.min.js?1539613675"></script>-->
+    <!--<script type="text/javascript" src="js/app-footer.min.js?1540307849"></script>-->
 
     
 <script type="text/javascript" src="js/lib/jquery.js"></script>

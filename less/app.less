@@ -54,22 +54,14 @@ header {
 }
 
 // global button styles 
-.btn {
-    background-color: @white; 
-    border: 1px solid @gray-c;
+button {
+    background-color: @cherry;
+    border: none; 
     border-radius: 2px; 
-    padding: .5rem;
-    &.active {
-        background-color: @cherry-light-80; 
-    }
-    &.btn-save {
-        background-color: @cherry; 
-        border: none; 
-        color: @white;
-        font-weight: 700; 
-        letter-spacing: .5px; 
-        padding: 1rem; 
-    }
+    color: @white;
+    font-weight: 700; 
+    letter-spacing: .5px; 
+    padding: 1rem; 
 }
 
 h2 {
@@ -125,43 +117,9 @@ h2 {
         opacity: 0.5;
     }
 
-    .btn-group { -webkit-font-smoothing: antialiased; }
-
-    .btn-group,
-    .btn-group + .btn {
-        margin-right: @padding / 2;
-    }
-
-    .btn-group-vertical .btn {
-        text-align: left;
-    }
-
     .form-group,
     .btn-group {
         margin-bottom: 1.25rem;
-    }
-
-    .btn-group,
-    .btn-group-vertical,
-    .input-group .btn {
-        -webkit-font-smoothing: antialiased;
-    }
-
-    .input-group .btn:focus {
-        outline: none;
-    }
-
-    .btn-group-sm > .btn {
-        font-size: 13px;
-        padding: 5px;
-    }
-
-    .btn:active,
-    .btn.active {
-        outline: 0;
-        background-image: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
     }
     
     input[type="range"] {
@@ -198,15 +156,6 @@ h2 {
         opacity: 0.5;
     }
 
-    .btn-group,
-    .btn-group + .btn {
-        margin-right: @grid-gutter-width / 2;
-    }
-
-    .btn-group-vertical .btn {
-        text-align: left;
-    }
-
     label {
         display: block;
         font-weight: normal;
@@ -233,7 +182,7 @@ h2 {
         width: 100%;  
     }
     // exported image
-    .poster-wrapper {
+    .wrapper {
         width: 100%; 
     }
 }
@@ -250,12 +199,14 @@ h2 {
     color: @text-color;
 
     // twitter (default)
-    height: 100%; 
-    width: 100%;
-    @media screen and (min-width: @screen-sm-max){
-        height: 384px; // half x 1.5
-        width: 768px; // half x 1.5
-        padding: @padding;
+    &.twitter {
+        height: 100%; 
+        width: 100%;
+        @media screen and (min-width: @screen-sm-max){
+            height: 384px; // half x 1.5
+            width: 768px; // half x 1.5
+            padding: @padding 60px;
+        }
     }
 
     // facebook
@@ -282,7 +233,7 @@ h2 {
         z-index: 100;
         bottom: 0;
         right: 0px;
-        padding: 30px;
+        padding: @padding;
 
         img {
             display: block;
@@ -290,21 +241,43 @@ h2 {
         }
     }
 
-    &.poster-raisin {
+    &.slate-podcasts, 
+    &.slate-studios {
+        .logo-wrapper {
+            img {
+                width: 200px;
+            }
+        }
+    }
+
+    &.raisin {
         background: @theme2-bg-color;
         color: @theme2-text-color;
     }
     
-    &.poster-plum {
+    &.plum {
         background: @theme3-bg-color;
         color: @theme3-text-color;
     }
 
-    &.poster-brand-color {
-        &.slow-burn {
-            background: @clementine;
+    &.brand-color {
+        &.dear-prudence, 
+        &.lend-me-your-ears,
+        &.outward,
+        &.the-waves {
+            background: @cherry;
             color: @white;
         }
+        &.decoder-ring, 
+        &.if-then {
+            background: @glacier;
+            color: @white;
+        }
+        &.political-gabfest {
+            background: @partisan-blue;
+            color: @white;
+        }
+        &.mom-and-dad-are-fighting,
         &.trumpcast {
             background: @carrot;
             color: @white;
@@ -352,7 +325,6 @@ h2 {
                 left: -30px;
             }
             .img2 {
-                right: -30px;
                 bottom: 30px;
             }
         }
