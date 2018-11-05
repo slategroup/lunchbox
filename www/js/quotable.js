@@ -38,14 +38,14 @@ function convertToSlug(text) {
         .replace(/ +/g,'-');
 }
 
-/*function processText() {
+function processText() {
     $text = $('.social-graphic-quote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
 
         $(this).html(smarten(rawText)).find('br').remove();
     });
-}*/
+}
 
 function processFilename() {
     $text = $('.social-graphic-quote blockquote p');
@@ -58,7 +58,7 @@ function processFilename() {
 function saveImage() {
 
     $('canvas').remove();
-    //processText();
+    processText();
 
     // makes downloaded image 2x
     var w = $('.social-graphic-quote').css('width').replace('px', '');
@@ -143,7 +143,7 @@ $(function() {
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
     $podcastName.html(quote.podcastName);
-    //processText();
+    processText();
 
     // nan's custom function that is very similar to others
     processFilename(); 
