@@ -1840,7 +1840,7 @@ h2 {
   .social-graphic-quote.twitter {
     height: 384px;
     width: 768px;
-    padding: 50px 60px;
+    padding: 40px 75px;
   }
 }
 .social-graphic-quote.facebook {
@@ -1873,6 +1873,9 @@ h2 {
 .social-graphic-quote .logo-wrapper img {
   display: block;
   width: 100px;
+}
+.social-graphic-quote.twitter .logo-wrapper {
+  padding: 50px 75px;
 }
 .social-graphic-quote.slate-podcasts .logo-wrapper img,
 .social-graphic-quote.slate-studios .logo-wrapper img {

@@ -205,7 +205,7 @@ h2 {
         @media screen and (min-width: @screen-sm-max){
             height: 384px; // half x 1.5
             width: 768px; // half x 1.5
-            padding: @padding 60px;
+            padding: 40px 75px; // custom padding for twitter mobile app image cropping
         }
     }
 
@@ -238,6 +238,11 @@ h2 {
         img {
             display: block;
             width: @brand-logo-size;
+        }
+    }
+    &.twitter {
+        .logo-wrapper {
+            padding: @padding 75px; // custom padding for twitter mobile app image cropping
         }
     }
 
