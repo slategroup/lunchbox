@@ -14,7 +14,8 @@ var $podcastName = null;
 var quotes = [
     {
         "quote": "The quick brown fox jumps over the lazy dog.",
-        "source": "Some Person", 
+        "source": "Some Person",
+        "podcastName": "Person's Title", 
         "size": 40
     }
 ];
@@ -285,6 +286,6 @@ $(function() {
 
     var podcastNameEditor = new MediumEditor(podcastNameEl, {
         disableToolbar: true,
-        placeholder: ''
+        placeholder: ' '
     });
 });
