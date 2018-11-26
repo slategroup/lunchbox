@@ -43,8 +43,6 @@ function processText() {
     $text = $('.social-graphic-quote p, .source, .podcast-name');
     $text.each(function() {
         var rawText = $.trim($(this).html());
-
-        $(this).html(smarten(rawText)).find('br').remove();
     });
 }
 
