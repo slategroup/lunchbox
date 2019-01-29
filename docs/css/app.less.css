@@ -169,12 +169,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.hide {
-  display: none !important;
-}
-.show {
-  display: block !important;
-}
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -1696,7 +1690,7 @@ body {
 }
 canvas {
   display: none;
-  background: #41474e;
+  background: #444444;
 }
 header {
   color: #ff0e50;
@@ -1786,23 +1780,12 @@ h2 {
   letter-spacing: 0;
 }
 .filters .help {
-  color: #999999;
+  color: #dddddd;
 }
 .warning {
   font-size: 12px;
   font-style: italic;
   margin-top: 6px;
-}
-.filters small {
-  font-size: 100%;
-  opacity: 0.5;
-}
-.filters label {
-  display: block;
-  font-weight: normal;
-}
-.filters .help {
-  color: #999999;
 }
 .content {
   display: grid;

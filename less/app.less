@@ -1,5 +1,4 @@
 @import "less/normalize";
-@import "less/bootstrap_shit";
 @import "less/lib/font-awesome/font-awesome";
 @import "less/medium";
 @import "less/variables";
@@ -25,7 +24,7 @@ body {
 
 canvas {
     display: none;
-    background: @musicDark;
+    background: @gray-4;
 }
 
 header {
@@ -140,30 +139,13 @@ h2 {
         }
     }
 
-    .help { color: @gray-light; }
+    .help { color: @gray-d; }
 }
 
 .warning {
     font-size: 12px;
     font-style: italic;
     margin-top: 6px;
-}
-
-.filters {
-
-    small {
-        font-size: 100%;
-        opacity: 0.5;
-    }
-
-    label {
-        display: block;
-        font-weight: normal;
-    }
-
-    .help {
-        color: @gray-light;
-    }
 }
 
 
