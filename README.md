@@ -9,7 +9,7 @@
 What is this?
 -------------
 
-**Lunchbox** is a suite of tools from [NPR](https://github.com/nprapps/lunchbox) to create images intended for social media sharing. The original Luncbox includes Quotable, Factlist and Waterbug. This is Slate's version which only includes Quotable. 
+**Lunchbox** is a suite of tools from [NPR](https://github.com/nprapps/lunchbox) to create images intended for social media sharing. The original Lunchbox includes Quotable, Factlist and Waterbug. This is Slate's version which only includes Quotable. 
 
 Find the live version of Slate Quotable here: https://slategroup.github.io/lunchbox/. 
 
