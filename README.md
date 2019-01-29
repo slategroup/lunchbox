@@ -66,3 +66,10 @@ Because this site is currently hosted w/ [Github Pages](https://pages.github.com
 ```
 fab gh_pages
 ```
+
+Known Issues
+-------------
+
+- There is no CSS or JS minimization in this repo due to a compiling bug. 
+- There are some issues w/ the image size on retina vs. non-retina screens. 
+
